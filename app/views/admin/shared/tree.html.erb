@@ -1,0 +1,49 @@
+<%
+	# only arg used is list_fields
+	singular_name = params[:controller].sub("admin/","").singularize if singular_name.nil?
+	title_field = "title" if title_field.nil?
+	class_name = singular_name.camelize
+	plural_name = singular_name.pluralize
+	collection = eval("#{class_name}.all") if collection.nil?
+%>
+<% if true || current_user.can?("create","Model#{resource_class.to_s}") %>
+ 	<%= link_to "+ Add #{resource_class.to_s}", new_resource_url, :class => "awesome large green floatRight" %>
+<% end %>
+<h1>Manage <%= plural_name.titleize %> Tree <small>(drag and drop to organize)</small></h1><br />
+<%= sortable_tree_list(collection.first.class.where("parent_id=? or parent_id is ?", 0, nil)) %>
+
+<style type="text/css" media="screen">
+	.placeholder{background: #eee;}
+	ol{margin:0;padding:0;padding-left:30px;}
+	ol.sortable,ol.sortable ol{margin:0 0 0 25px;padding:0;list-style-type:none;}
+	ol.sortable{margin:0;}
+	.sortable li{margin:2px 0 0 0;padding:0;}
+	.sortable li div{border:1px solid #ccc;padding:10px;margin:0;cursor:move;}
+</style>
+
+<% content_for :footer do %>
+	<script type="text/javascript" charset="utf-8">
+	
+		$(function() {
+			$('ol.sortable').nestedSortable({
+				disableNesting: 'no-nest',
+				forcePlaceholderSize: true,
+				handle: 'div',
+				helper:	'clone',
+				items: 'li',
+				maxLevels: 5,
+				opacity: .6,
+				placeholder: 'placeholder',
+				revert: 250,
+				tabSize: 25,
+				tolerance: 'pointer',
+				toleranceElement: '> div',
+				stop: function(event, ui) {
+					data = $("ol.sortable").nestedSortable("toArray"); 
+					// will send ids and positions to generic save_tree action
+					$.post("<%= admin_save_tree_path(class_name) %>", {data: data});
+				}
+			});
+		});
+	</script>
+<% end %>

@@ -1,0 +1,68 @@
+<%= render "admin/shared/list_toolbar" %>
+
+<% if defined? list_partial %>
+  <%= render :partial => list_partial, :collection => collection %>
+<% else %>
+  <table class="list">
+  	<thead>
+  		<% list_fields << "created_at" %>
+  		<% list_fields << "updated_at" %>
+  		<% list_fields.each do |field| %>
+  			<% g = params.dup %>
+  			<% g.delete(:controller) %>
+  			<% g.delete(:action) %>
+  			<% g[:order] = params[:order] == field ? "#{field} desc" : field %>
+  			<th><%= link_to("#{field} #{params[:order] == field ? "&darr;" : ""} #{params[:order] == "#{field} desc" ? "&uarr;" : ""}".html_safe, collection_path(g)) %></th>
+  		<% end %>
+  		<th width="50">&nbsp;</th>
+  		<th width="20">&nbsp;</th>
+  	</thead>
+	
+  	<% collection.each do |row| -%>
+  	<tr>
+  		<% list_fields.each do |field| %>
+  			<% if(field == "created_at" || field == "updated_at")
+  				break
+  			end %>
+  			<% val = eval(field_values[field.to_sym]) rescue row.send(field.to_sym) rescue "" %>
+  			<% ftype = row.column_for_attribute(field.to_s) ? row.column_for_attribute(field.to_s).sql_type : nil %>	
+  			<% if ftype == "tinyint(1)" || ftype == "boolean" %>
+  				<td>
+  					<%= check_box_tag "#{row.class.to_s.underscore}[#{field}]", 'true', val,
+  							:"data-remote" => true, :method => "put",
+  							:href => resource_url(row)
+  					%>
+  				</td>
+  			<% elsif ftype == "datetime" %>
+  				<td><%= time_ago_in_words(val) unless !val %></td>
+  			<% elsif field == "attachment"  %>
+  				<td><%= link_to row.attachment_file_name, row.attachment.url, :class => "file_link" %></td>
+  			<% elsif field[-4,4] == "able" && !row.send("#{field}_type").nil? # show polymorphic relationships %>
+  			  <td>
+  			      <strong><%= row.send("#{field}_type") %>:</strong> 
+  			      <%= link_to "#{ row.send("#{field}").title rescue row.send("#{field}").name rescue row.send("#{field}_id") }".html_safe,
+               { :controller => "admin/#{row.send("#{field}_type").tableize}", :action => 'edit', :id => row.send("#{field}_id") } %>
+          </td>
+  			<% else  %>
+  				<td><%= val %></td>
+  			<% end %>
+  		<% end %>
+  		<td><%= time_ago_in_words(row.created_at) %> ago</td>
+  		<td><%= time_ago_in_words(row.updated_at) %> ago</td>
+  		<td>
+        <% if current_user.can?("edit","Model#{resource_class.to_s}") %>
+  		  <%= link_to("edit", edit_resource_url(row), :class => "awesome small light" )%>
+  		  <% end %>
+  		</td>
+  		<td>
+        <% if current_user.can?("delete","Model#{resource_class.to_s}") %>
+  		  <%= link_to("x", resource_url(row), :class => "awesome small red", :confirm => 'Are you sure?', :method => :delete ) %>
+  		  <% end %>
+  		</td>
+  	</tr>
+  	<% end -%>
+	
+  </table>
+<% end %>
+
+<%= render "admin/shared/list_footer" %>

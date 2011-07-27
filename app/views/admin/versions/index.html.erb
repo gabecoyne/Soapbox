@@ -1,0 +1,38 @@
+<div class="toolbar" style="margin-bottom:5px">		
+	<%= will_paginate(collection) %>
+</div>
+
+<table class="list">
+	<thead>
+		<% list_fields = [
+			{:label =>"Who", :field => "whodunnit"},
+			{:label =>"Did", :field => "event"},
+			{:label =>"What", :field => "item_type"},
+			{:label =>"When", :field => "created_at"}
+		] %>
+		<% list_fields.each do |field| %>
+			<% g = params.dup %>
+			<% g.delete(:controller) %>
+			<% g.delete(:action) %>
+			<% g[:order] = params[:order] == field[:field] ? "#{field[:field]} desc" : field[:field] %>
+			<th><%= link_to("#{field[:label]} #{params[:order] == field[:field] ? "&darr;" : ""} #{params[:order] == "#{field[:field].to_s} desc" ? "&uarr;" : ""}".html_safe, collection_path(g)) %></th>
+		<% end %>
+	</thead>
+	<% collection.each do |row| -%>
+		<tr>			
+			<td><%= begin User.find(row.whodunnit).email rescue "NA" end %></td>
+			<td><strong><%= row.event %>d</strong></td>
+			<td><%= row.item_type %>: <em><%= begin row.item.name rescue row.item.title rescue row.item.email rescue "NA" end %></em></td>
+			<td><u><%= time_ago_in_words(row.created_at) %> ago</u></td>
+		</tr>
+	<% end -%>
+</table>
+	
+<div class="toolbar" style="margin-top:5px">
+	<%= will_paginate(collection) %>
+</div>
+
+<style type="text/css" media="screen">
+	a.awesome { color: #fff; }
+</style>
+

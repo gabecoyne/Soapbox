@@ -1,0 +1,198 @@
+<div class="toolbar" style="margin-bottom:5px">
+  
+	<%= link_to "Google Analytics Credentials", "javascript:$('form#ga').slideToggle();", :class => "awesome large green floatRight" %>
+	
+	<%= form_for "ga", "", :html=> {:id => "ga",:style => "float:right;display:none", :method => :post} do |f| %>
+		<%= link_to "Save", "#", 
+			:class => "awesome large light floatRight", 
+			:style => "margin-right:5px", 
+			:onclick => "$('form#ga').submit()" 
+		%>
+		Email: 
+		<%= f.text_field :email, :value => Setting[:ga_email] %>
+		Password:
+		<%= f.password_field :password, :value => Setting[:ga_password] %>
+		Site ID (UA-XXXXXX-X):
+		<%= f.text_field :web_property_id, :value => Setting[:ga_web_property_id] %>
+	<% end %>
+	
+  <h1>Last 30 Days</h1>
+  
+</div>
+
+<% if @summary %>
+
+  <ul class="summary">  
+    <% @summary_metrics.each do |metric| -%>
+        <li>
+          <span><%= metric.titleize %></span>
+          <strong><%= (@summary.first.send(metric.tableize) || @summary.first.send(metric.tableize.singularize)).to_i  %>
+          <%= "%" if metric == "visitBounceRate" || metric == "percentNewVisits" %></strong>
+        </li>
+    <% end -%>
+  </ul>
+
+  <br class="clear" />
+
+  <div id="graph"></div>
+  
+  <br /><br />
+  
+  <div class="col">
+    <h1>Top Pages</h1>
+    <table>
+      <% @pages.each do |page| -%>
+        <tr>
+          <td><strong><a href="<%= page.page_path %>"><%= page.page_title %></a></strong> </td>
+          <td style="text-align:right"><%= page.pageviews %></td>
+          <td style="text-align:right"><%= ((page.pageviews.to_f/@visits.to_f)*100).to_i rescue 0 %>%</td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+  
+  <div class="col">
+    <h1>Top Searches</h1>
+    <table>
+      <% @searches.each do |search| -%>
+        <tr>
+          <td><strong><%= search.keyword %></strong></td>
+          <td style="text-align:right"><%= search.visits %></td>
+          <td style="text-align:right"><%= ((search.visits.to_f/@visits.to_f)*100).to_i rescue 0 %>%</td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+  
+  <div class="col">
+    <h1>Top Referrers</h1>
+    <table>
+      <% @referrers.each do |referrer| -%>
+        <tr>
+          <td><strong><%= referrer.source %></strong> <%= referrer.medium %></td>
+          <td style="text-align:right"><%= referrer.visits %></td>
+          <td style="text-align:right"><%= ((referrer.visits.to_f/@visits.to_f)*100).to_i rescue 0 %>%</td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+  
+  <div class="col">
+    <h1>Top Browsers</h1>
+    <table>
+      <% @browsers.each do |browser| -%>
+        <tr>
+          <td><strong><%= browser.browser %></strong> <%= "<em>(Mobile)</em>".html_safe if browser.is_mobile == "Yes" %></td>
+          <td style="text-align:right"><%= browser.visits %></td>
+          <td style="text-align:right"><%= ((browser.visits.to_f/@visits.to_f)*100).to_i rescue 0 %>%</td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+  
+  <br class="clear" /><br /><hr />
+  <center><p>For More detailed reports, use <a href="http://google.com/analytics" target="_blank">Google Analytics</a></p></center>
+
+  <script language="javascript" type="text/javascript" src="/soapbox/javascripts/jquery.flot.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    visits = [];
+    labels = [];
+    <% @daily.each_with_index do |day,i| -%>
+        visits.push([<%= i %>, <%= day.visits %>]);
+        labels.push("<%= (Time.now - 31.days + i.days).strftime("%A, %B %e") %><br /><strong><%= day.visits %> Visits</strong>")
+    <% end -%>
+    $(function() {
+      $.plot($("#graph"), [
+       {
+          data: visits,
+          lines: { show: true },
+          points: { show: true },
+          color: "#91BD09"
+        }
+      ],{
+        grid: { hoverable: true, clickable: true }
+      });
+      function showTooltip(x, y, contents) {
+          $('<div id="tooltip">' + contents + '</div>').css( {
+              position: 'absolute',
+              display: 'none',
+              top: y + 5,
+              left: x + 5,
+              border: '1px solid #ccc',
+              padding: '2px 10px',
+              'background-color': '#eee',
+              opacity: 0.80
+          }).appendTo("body").fadeIn(200);
+      }
+      $("#graph").bind("plothover", function (event, pos, item) {
+        if (item) {
+            if (previousPoint != item.dataIndex) {
+                previousPoint = item.dataIndex;
+                
+                $("#tooltip").remove();
+                var x = item.datapoint[0].toFixed(2),
+                    y = item.datapoint[1].toFixed(2);
+                showTooltip(item.pageX, item.pageY, labels[Number(x)]);
+            }
+        }
+        else {
+            $("#tooltip").remove();
+            previousPoint = null;            
+        }
+    });
+    });  
+  </script>
+
+  <style type="text/css" media="screen">
+    ul.summary li{
+      float: left;
+      width: 15.6%;
+      margin: .5%;
+      text-align: center;
+      padding: 10px 0;
+    }
+    ul.summary li strong{
+      display: block;
+      font-size: 4em;
+      line-height: 1em;
+      text-shadow: #ddd 1px 1px 2px;
+    }
+    #graph{
+      width: 96%;
+      margin-left: 1%;
+      height: 300px;
+    }
+    .col{
+      float: left;
+      width: 21%;
+      margin-left: 3%;
+    }
+    .col h1{
+      margin-bottom: 20px;
+      color: #333;
+      text-shadow: #ddd 1px 1px 2px;
+    }
+    .toolbar h1{
+      color: #fff;
+      margin-left: 10px;
+      text-shadow: #777 1px 1px 2px;
+    }
+    table{
+      width: 100%;
+    }
+    td, th{
+      padding-right: 10px;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+  
+<% elsif Setting[:ga_web_property_id] %>
+  <br /><br />
+  <center>There was a problem accessing your Google Data. Double check your Credentials.</center>  
+<% else %>
+  <br /><br />
+  <center>Fill out your Google Analytics credentials above or <a href="http://google.com/analytics">signup for Google Analytics now</a>.</center>
+  <script type="text/javascript" charset="utf-8">
+    $("form#ga").toggle();
+  </script>
+<% end %>

@@ -1,0 +1,9 @@
+xml.instruct!
+xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
+  Page.published.each do |page|
+    xml.url do
+      xml.loc page_url(page)
+      xml.lastmod page.updated_at.to_date
+    end
+  end
+end

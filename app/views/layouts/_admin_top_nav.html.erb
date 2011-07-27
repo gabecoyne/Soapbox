@@ -1,0 +1,19 @@
+<div id="top_nav">
+	<a href="/admin" id="logo">soapbox<small>rails 3 cms</small></a>
+	<div id="site">
+		<ul>			
+			<li><%= link_to "View Site", "/", :class => "awesome small green" %></li>
+			<li><%= link_to "Logout", destroy_user_session_path, :class => "awesome small black" %></li>
+		</ul><br />
+		<h1 class="site_name"><%= Setting[:site_name] %></h1>
+	</div>
+	<ul id="small_nav">				
+		<li><%= link_to "Settings", admin_settings_path, :class => "awesome small black" %></li>
+		<li><%= link_to "Analytics", admin_analytics_path, :class => "awesome small black" %></li>
+		<li><%= link_to "History", admin_versions_path, :class => "awesome small black" %></li>
+		<% if current_user.super_admin? %>
+			<li><%= link_to "Plugins", admin_plugins_path, :class => "awesome small black" %></li>
+		<% end %>
+	</ul>
+	<%= plugin_nav(nil,"admin_tabs") %>
+</div>

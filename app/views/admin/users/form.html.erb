@@ -1,0 +1,28 @@
+<%= semantic_form_for([:admin, @user]) do |form| %>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+	<%= render "admin/shared/form_errors" %>
+
+	<div class="tabs">
+		
+		<ul>
+			<li><a href="#tab_main">Main</a></li>
+		</ul>		
+	
+		<div id="tab_main">
+			<%= form.inputs do -%>
+			  	<%= form.inputs do -%>
+						<%= form.input :email %>
+						<%= form.input :password %>
+						<%= form.input :password_confirmation %>
+						<%= form.input :groups, :as => :check_boxes %>
+				  <%- end -%>
+	    <%- end -%>
+		</div>
+	
+	</div>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+<% end %>

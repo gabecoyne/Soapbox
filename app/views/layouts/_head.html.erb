@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= params[:controller].titleize.sub("Admin/","") %> | Soapbox Admin</title>
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" /> 
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+  <%= stylesheet_link_tag "/soapbox/stylesheets/standardize",
+			"/soapbox/stylesheets/awesome_buttons",
+			"/soapbox/stylesheets/formtastic",
+			"/soapbox/stylesheets/formtastic_changes",
+			"/soapbox/stylesheets/smoothness/jquery-ui-1.8.4.custom.css",
+			"/soapbox/stylesheets/jquery.timepicker.css",
+			'/soapbox/stylesheets/jquery.fileupload-ui.css',
+			"/soapbox/stylesheets/admin"
+	%>	
+	<%= javascript_include_tag "/soapbox/javascripts/jquery-1.4.2.min.js", 
+		# "/soapbox/javascripts/jquery.tools.min.js", 
+		"/soapbox/javascripts/jquery-ui-1.8rc3.custom.min.js",
+		"/soapbox/javascripts/jquery.ui.nestedSortable.js",
+		"/soapbox/javascripts/jquery.timepicker.js",
+		"/soapbox/javascripts/rails.js",
+		"/soapbox/javascripts/jquery.formtastic.js",
+		'/soapbox/javascripts/tiny_mce/jquery.tinymce.js',
+		'/soapbox/javascripts/tiny_mce/init.js',
+		'/soapbox/javascripts/tiny_mce/tiny_mce_popup.js' ,
+		'/soapbox/javascripts/jquery.fileupload.js', '/soapbox/javascripts/jquery.fileupload-ui.js',
+		'/soapbox/javascripts/admin.js'
+	%>
+  <%= csrf_meta_tag %>
+	<%= yield :head %>
+</head>

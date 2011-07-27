@@ -1,0 +1,22 @@
+<% content_for :head_before_styles do %>
+  <%= stylesheet_link_tag "/soapbox/stylesheets/nivo-slider.css" %> 
+  <%= stylesheet_link_tag "/soapbox/stylesheets/nivo-themes/default/default.css" %> 
+<% end %>
+<% content_for :head do %>
+  <%= javascript_include_tag "/soapbox/javascripts/jquery.nivo.slider.pack.js" %> 
+<% end %>
+
+<% begin %>	
+	<ul class="nivo theme-<%= theme %>">
+		<% gallery.gallery_images.each do |image| -%>
+			<li><%= image_tag(image.image(image_style), {:alt => image.caption, :width => width, :height => height} ) %></li>
+		<% end -%>
+	</ul>
+<% rescue %>
+<% end %>
+		
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+		$('.nivo').nivoSlider({effect:"fade"});
+  });
+</script>

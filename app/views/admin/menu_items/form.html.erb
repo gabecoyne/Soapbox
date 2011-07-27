@@ -1,0 +1,28 @@
+<%= semantic_form_for([:admin, @menu, @menu_item]) do |form| %>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+	<%= render "admin/shared/form_errors" %>
+
+	<div class="tabs">
+		
+		<ul>
+			<li><a href="#tab_main">Main</a></li>
+		</ul>		
+		
+		<div id="tab_main">
+			Attached to <u><%= @menu_item.menuable_type %></u> <strong><%= @menu_item.menuable.name rescue @menu_item.menuable.title rescue "Index" %></strong><br />
+			You can override the menu item label and link<br /><br /><br /><br />
+			<%= form.inputs do -%>
+			  	<%= form.inputs do -%>
+						<%= form.input :label %>
+						<%= form.input :link %>
+				  <%- end -%>
+	    <%- end -%>
+		</div>
+	
+	</div>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+<% end %>

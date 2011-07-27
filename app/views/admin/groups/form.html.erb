@@ -1,0 +1,81 @@
+<%= semantic_form_for([:admin, @group]) do |form| %>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+	<%= render "admin/shared/form_errors" %>
+
+	<div class="tabs">
+		
+		<ul>
+			<li><a href="#tab_main">Main</a></li>
+		</ul>		
+	
+		<div id="tab_main">
+			<%= form.inputs do -%>
+			  
+					<%= form.input :name %>
+					<li class="string optional" id="group_name_input">
+					  <label for="group_name">Global Permissions 
+					    <br /><small>These will override any other <br />permissions with the same name</small><br /><br />
+					  </label>					  
+  					<table>
+              <tr>
+               <td><strong>Global</strong></td>
+    					  <% @permissions["Global"].sort.each do |perm,info| -%>
+                 <td>
+                    <%= check_box_tag "group[permissions_attributes][Global][#{perm}]", "true" , @group.can?(perm, "Global") %>
+                    <label class="plain" for="<%= "group_permissions_attributes_Global_#{perm}" %>"><%= perm.titleize %></label>
+                 </td>
+                <% end -%>
+              </tr>
+  					</table>
+					</li>
+					<li class="string optional" id="group_name_input">
+					  <label for="group_name">Model Permissions</label>					  
+  					<table>
+                <% app_models.each do |model| next if @permissions["Exclude"]["Models"][model] %>
+                 <tr>
+                    <td><strong><%= model %></strong></td>
+      							<% @permissions["Defaults"]["Models"].merge(@permissions["Custom"]["Models"][model] || {}).sort.each do |perm,info| %>
+                      <td>
+                        <%= check_box_tag "group[permissions_attributes][Model#{model}][#{perm}]", "true" , @group.can?(perm, "Model#{model}") %>
+                        <label class="plain" for="<%= "group_permissions_attributes_Model#{model}_#{perm}" %>"><%= perm.titleize %></label>
+                      </td>
+                    <% end -%>
+                 </tr>
+               <% end %>
+              </tr>
+  					</table>
+					</li>
+					<li class="string optional" id="group_name_input">
+					  <label for="group_name">Plugin Permissions</label>					  
+  					<table>
+  					  <% Plugin.permitable.each do |plugin| %>
+               <tr>
+                  <td><strong><%= plugin.title %></strong></td>
+    							<% @permissions["Defaults"]["Plugins"].merge(@permissions["Custom"]["Plugins"][plugin.title.camelize] || {}).sort.each do |perm,info| %>
+                    <td>
+                      <%= check_box_tag "group[permissions_attributes][Plugin#{plugin.title.camelize}][#{perm}]", "true" , @group.can?(perm, "Plugin#{plugin.title.camelize}") %>
+                      <label class="plain" for="<%= "group_permissions_attributes_Plugin#{plugin.title.camelize}_#{perm}" %>"><%= perm.titleize %></label>
+                    </td>
+                  <% end -%>
+               </tr>
+             <% end %>
+  					</table>
+					</li>
+			  
+	    <%- end -%>
+			<ol>
+		</div>
+	
+	</div>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+<% end %>
+
+<style type="text/css" media="screen">
+	form.formtastic fieldset > ol > li label.plain{ float: none; font-weight: normal; display: inline;}
+	tr{  border-bottom:solid 1px #999 }
+</style>
+

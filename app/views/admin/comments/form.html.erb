@@ -1,0 +1,34 @@
+<%= semantic_form_for([:admin, @comment]) do |form| %>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+	<%= render "admin/shared/form_errors" %>
+
+	<div class="tabs">
+		
+		<ul>
+			<li><a href="#tab_main">Main</a></li>
+		</ul>		
+	
+		<div id="tab_main">
+			<%= form.inputs do -%>
+			  
+					<%= form.input :comment %>
+			  
+					<%= form.input :commentable_id %>
+			  
+					<%= form.input :commentable_type %>
+			  
+					<%= form.input :user_id %>
+			  
+	    <%- end -%>
+			<ol>
+		</div>
+	
+	</div>
+
+   <%= f.buttons do -%>
+     <%= f.commit_button :input_html %>
+   <%- end -%>
+
+<% end %>

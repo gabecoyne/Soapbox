@@ -1,0 +1,35 @@
+Global:
+  admin: manage all records
+  admin_their_own: manage their own records
+  read: read only
+  create: create records
+  edit: edit records
+  delete: delete records
+  access: access plugins
+  
+Defaults:
+  Plugins:
+    access: access the plugin through the admin UI
+  Models:
+    admin: manage all records
+    admin_their_own: manage their own records
+    read: read only
+    create: create records
+    edit: edit records
+    delete: delete records
+
+Custom:
+  Models:
+    Page:
+      publish: make pages live to the public
+  Plugins:
+    Pages:
+      control: sample just for testing
+      
+Exclude:
+  Models:
+    Membership: true
+    Content: true
+    Slug: true
+    Version: true
+    "Polypaperclip::PersistedAttachment": true

@@ -1,0 +1,20 @@
+<% singular_name = singular_name = resource.class.to_s.tableize.singularize %>
+<li class="check_boxes optional" id="<%= singular_name %>_<%= context %>_list_input">			
+	<fieldset>
+		<legend class="label"><label><%= context.titleize.pluralize %></label></legend>
+		<ol>
+			<% resource.class.send("#{context}_counts").each_with_index do |tag,i| -%>
+				<li>
+					<label for="<%= singular_name %>_<%= context %>_<%= i %>">
+						<%= check_box_tag "#{ singular_name }[#{ context }_list][]", tag.name, resource.tags_on(context.pluralize.to_s).index(tag), :id => "#{ singular_name }_#{ context }_#{i}" %> <%= tag.name %>
+					</label>
+				</li>
+			<% end -%>
+			<li style="display:none">
+				<%= text_field_tag "#{ singular_name }[#{ context }_list][]", "", :disabled => true %>
+				<%= link_to "x", "javascript:;", :class => "awesome red", :onclick => "$(this).parent().remove()" %>
+			</li>
+			<li><%= link_to "+ Add #{ context.titleize }", "javascript:;", :class => "awesome green", :onclick => "$(this).parent().prev().clone().insertBefore($(this)).show().find('input').attr('disabled',false)" %></li>
+		</ol>
+	</fieldset>
+</li>

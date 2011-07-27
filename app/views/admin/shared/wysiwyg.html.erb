@@ -1,0 +1,17 @@
+<%= semantic_form_for([:admin, @resource], :remote => true, :html => {:multipart => true, :class => "formtastic"}) do |form| %>
+	
+ 	<%= form.inputs do -%>
+		<%= link_to "x", "javascript", :onclick => "window.close()", :class => "awesome red floatRight large", :style => "margin-left:10px" %>
+		<%= form.commit_button :button_html => {:class => "awesome large green floatRight"} %>
+		<h1>Editing &raquo; <%= @resource.class.to_s %> &raquo; <%= params[:id] %> &raquo; <%= params[:field] %></h1><br />
+		<%= form.input params[:field], :as => :text, :input_html => { :class => "editor" }, :label_html => {:style=>"display:none"} %>
+		<br class="clear" /><br />
+		<%= hidden_field_tag "success", "window.opener.location.href=window.opener.location; window.close();" %>
+	<% end %>
+	
+<% end %>
+
+<style type="text/css" media="screen">
+	span.mceEditor{ width: 100%; }
+</style>
+

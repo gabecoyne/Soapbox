@@ -1,0 +1,5 @@
+<li id="item_<%= item.id %>" data-type="<%= item.class.to_s %>" data-id="<%= item.id %>">
+	<%= item.label_text %>
+	<%= link_to "x", admin_menu_menu_item_path(item.menu, item), :class => "floatRight awesome light small delete", :remote => true, :method => :delete, :confirm => "Are you sure?" %>
+	<%= link_to "edit", edit_admin_menu_menu_item_path(item.menu, item), :class => "floatRight awesome light small", :style => "margin-right:10px" %>
+</li>

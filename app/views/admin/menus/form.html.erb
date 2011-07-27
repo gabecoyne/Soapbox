@@ -1,0 +1,25 @@
+<%= semantic_form_for([:admin, @menu]) do |form| %>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+	<%= render "admin/shared/form_errors" %>
+
+	<div class="tabs">
+		
+		<ul>
+			<li><a href="#tab_main">Main</a></li>
+		</ul>		
+	
+		<div id="tab_main">
+			<%= form.inputs do -%>
+			  	<%= form.inputs do -%>
+						<%= form.input :name %>
+				  <%- end -%>
+	    <%- end -%>
+		</div>
+	
+	</div>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+<% end %>

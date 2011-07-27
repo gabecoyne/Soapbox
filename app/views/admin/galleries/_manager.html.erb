@@ -1,0 +1,57 @@
+<!-- https://github.com/blueimp/jQuery-File-Upload/wiki/jQuery-File-Upload-v4-for-Rails-3 -->
+
+<script type="text/javascript" charset="utf-8">
+	$(function(){		
+	  $('.upload_<%= @gallery.id %>').fileUploadUI({
+	        uploadTable: $('.upload_files_<%= @gallery.id %>'),
+	        downloadTable: $('.download_files_<%= @gallery.id %>'),
+	        buildUploadRow: function (files, index) {
+	            var file = files[index];
+	            return $('<tr><td>' + file.name + '<\/td>' +
+	                    '<td class="file_upload_progress"><div><\/div><\/td>' +
+	                    '<td class="file_upload_cancel">' +
+	                    '<button class="ui-state-default ui-corner-all" title="Cancel">' +
+	                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+	                    '<\/button><\/td><\/tr>');
+	        },
+	        buildDownloadRow: function (resource) {
+							$.get("/admin/galleries/"+resource.gallery_id+"/gallery_images/"+resource.id+"/image", function(data) {
+								$(".download_files_<%= @gallery.id %>").append(data);
+							});
+	        },
+	    })
+			$(".download_files_<%= @gallery.id %>").sortable({
+				stop: function(event, ui) {
+					$.post("<%= admin_save_order_path('GalleryImage') %>",$(".download_files_<%= @gallery.id %>").sortable("serialize",{ key:"order[]" }))
+				}
+			});
+	});
+</script>
+
+<div class="files"> 
+	<%= form_for [:admin, @gallery, @gallery.gallery_images.new], :html => { :class => "upload upload_#{@gallery.id}", :multipart => true } do |f| %>
+		<div class="imageupload-buttonbar"> 
+			<label class="imageinput-button"> 
+				<span class="awesome large green">+ Add <%= @gallery.name %> Images</span> 
+				<input type="file" name="gallery_image[image]" multiple> 
+			</label> 
+		</div> 
+	  <div></div><!-- Upload files -->
+	<% end %>
+	<br />
+	<table class="upload_files upload_files_<%= @gallery.id %>">
+	</table>
+	<div class="download_files download_files_<%= @gallery.id %>">
+		<%= render :partial => "admin/galleries/image", :collection => @gallery.gallery_images %>
+	</div>
+</div>
+
+<style type="text/css" media="screen">
+	.download_files{overflow:auto;}
+	.download_files .gallery_image{float:left;width:240px;border:1px solid #ccc;background:#fff;-moz-box-shadow:0 1px 10px rgba(0,0,0,0.25);-webkit-box-shadow:0 1px 10px rgba(0,0,0,0.25);box-shadow:0 1px 10px rgba(0,0,0,0.25);padding:10px;text-align:center;margin-right:20px;margin-bottom:20px;}
+	.download_files .gallery_image img{width:100%;}
+	.download_files .gallery_image a.awesome{color:#fff;}
+	.upload_files td{padding-right:20px;}
+	form.file_upload input{position: relative;border: none;}
+</style>
+

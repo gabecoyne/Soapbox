@@ -1,0 +1,71 @@
+= Soapbox CMS
+
+== Install
+
+Copy vendor/plugins/soapbox/public/soapbox files to /public/soapbox
+
+
+== Running on Ruby 1.9.2
+
+  - autoloading ruby 1.9.2 from .rvmrc
+  - http://sirupsen.com/get-started-right-with-rvm/
+  
+
+== Scaffold Generator
+
+rails g soapbox_scaffold plugin_name field:type field:type
+
+
+== Features
+
+- shared admin list view - paging, search, add, edit, delete
+- plugin generator
+- admin tab navigation
+- admin authentication using devise
+- plugin ordering/nesting
+- shared list management
+- shared tree management
+- S3 paperclip file manager - integrated with wizywig
+- tinymce wizywig editor
+- admin and form css styling
+- settings
+- dynamic sitemap.xml - for pages
+- users, groups, permissions, custom permissions, user.can?(do, plugin)
+- admin search
+- paper_trail - version control and user history
+- permissions.yml - user.can? and group.can? - checkbox ui in admin - Global overrides - Plugin & Model level perms
+- analytics plugin - google analytics API integration - show top pages, traffic sources, and search terms
+- polypaperclip - attach anything to anything and browse/search it all in one library
+- menus - drag pages and other menuable models into different menues
+- front end edit buttons
+- keyed contents (snippets)
+- tags - acts_as_taggable_on
+
+
+== Todos
+
+- figure out how to extend models from application - /log/page_extensions.rb - module
+- analytics - PageRankr - http://rubydoc.info/gems/PageRankr/2.0.1/frames
+- gitsatisfaction for community support
+- add default permission stuff for shared list and admin_controller - create, edit, delete, admin, etc
+- wizywig short codes - [snippet:key], [setting:admin_email], [cropper:image_name,width,height]
+- caching - memcache
+- default error docs
+- sending email
+- permissions - bulk selection - jQuery
+
+== Phase 2
+
+- image galleries - bulk upload, ordering, captions
+- multi file uploader with progress - https://github.com/blueimp/jQuery-File-Upload/wiki/jQuery-File-Upload-for-Rails-3
+- tn cropper - view helper: cropper(filename, width, height) - flash tool - image processing on backend 
+  - https://github.com/jschwindt/rjcrop
+  - http://dev.w3.org/2006/webapi/FileAPI/
+  - http://www.thecssninja.com/javascript/drag-and-drop-upload
+- Interesting rails_tiny_mce https://github.com/sandipransing/rails_tiny_mce
+
+== Reference
+
+- plugin as gem: http://stackoverflow.com/questions/4239078/rails-3-define-plugin-gem-dependency
+
+[snippet:tag_line]

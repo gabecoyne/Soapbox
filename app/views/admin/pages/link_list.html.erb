@@ -1,0 +1,9 @@
+var tinyMCELinkList = new Array(
+	// Name, URL
+	["--------- Pages ---------","#"],
+	<% @pages.each do |page| -%>
+		["<%= page.title %>","<%= page_path(page) %>"],
+	<% end -%>
+	[]
+	<% #todo add other items... video, audio, events, etc %>
+);

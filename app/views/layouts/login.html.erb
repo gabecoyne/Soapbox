@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= params[:controller].titleize.sub("Admin/","") %> | Soapbox Admin</title>
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" /> 
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+  <%= stylesheet_link_tag "/soapbox/stylesheets/standardize",
+			"/soapbox/stylesheets/awesome_buttons",
+			"/soapbox/stylesheets/admin"
+	%>	
+  <%= csrf_meta_tag %>
+	<%= yield :head %>
+</head>
+<body class="login">
+	<% if notice %><p class="notice"><%= notice %></p><% end %>
+	<% if alert %><p class="alert"><%= alert %></p><% end %>
+	<div id="content">
+		<%= yield %>
+	</div>
+	<%= yield :footer %>
+</body>
+</html>

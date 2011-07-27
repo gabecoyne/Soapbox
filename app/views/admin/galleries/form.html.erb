@@ -1,0 +1,18 @@
+<%= semantic_form_for([:admin, @gallery]) do |form| %>
+
+	<%= render "admin/shared/form_buttons", :form => form %>
+
+	<%= render "admin/shared/form_errors" %>
+
+	<%= form.inputs do -%>
+	  <br />
+		<%= form.input :name, :input_html => {:class => "title"}, :label_html => {:style => "display:none"} %>
+	<%- end -%>
+
+<% end %>
+
+<% if params[:action] == "edit" %>
+
+	<%= render "manager" %>	
+	
+<% end %>

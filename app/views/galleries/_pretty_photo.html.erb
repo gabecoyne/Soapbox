@@ -1,0 +1,19 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "/soapbox/stylesheets/prettyPhoto.css" %> 
+  <%= javascript_include_tag "/soapbox/javascripts/jquery.prettyPhoto.js" %> 
+<% end %>
+
+<% begin %>	
+	<ul class="gallery">
+		<% gallery.gallery_images.each do |image| -%>
+			<li><%= link_to image_tag(image.image(:thumb), {:alt => image.caption}), image.image(:large), {:rel => "prettyPhoto[#{gallery.name.tableize.singularize}]"} %></li>
+		<% end -%>
+	</ul>
+<% rescue %>
+<% end %>
+		
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>

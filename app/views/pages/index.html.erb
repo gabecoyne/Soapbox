@@ -1,0 +1,7 @@
+<ul id="pages">
+  <% @pages.each do |page| %>
+    <li>
+      <%= link_to page.title, page_url(page) %>
+    </li>
+  <% end %>
+</ul>

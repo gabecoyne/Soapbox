@@ -1,0 +1,15 @@
+<%= render "admin/shared/list_toolbar" %>
+
+<ul class="image_list">  
+<% collection.each do |row| -%>
+	<% next if row.attachable.nil? %>
+  <li>
+    <%= link_to (image_tag row.attachment.url), row.attachment.url, :class => "file_link" %><br />
+	  <% row.attachable.send(row.attachment_type).options[:styles].each do |style| -%>
+      <%= link_to "<b>#{style[0].to_s.titleize}</b> <small>(#{style[1]})</small>".html_safe, row.attachable.send(row.attachment_type).url(style.first), :class => "file_link" %> &nbsp; 
+    <% end -%>
+	</li>
+<% end -%>
+</ul>
+
+<%= render "admin/shared/list_footer" %>

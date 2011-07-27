@@ -1,0 +1,16 @@
+<h1><%= @group.name %></h1>
+
+<div>
+  <h3>Name</h3>
+  <%= @group.name %>
+</div>
+
+
+<h2>Other Groups</h2>
+<ul id="groups">
+  <% @groups.each do |group| %>
+    <li>
+      <%= link_to group.name, group_url(group) %>
+    </li>
+  <% end %>
+</ul>

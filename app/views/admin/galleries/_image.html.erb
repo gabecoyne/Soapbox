@@ -1,0 +1,8 @@
+<div id="gallery_image_<%= image.id %>" class="gallery_image">
+	<img alt="Photo" src="<%= image.image(:thumb) rescue "" %>" />
+	<%= form_for [:admin, image.gallery, image], :remote => true do |form| %>
+		<%= form.text_field :caption, :size => "22" %>
+		<%= form.submit "Save", :class => "awesome" %>
+	<% end %>
+	<%= link_to "x", admin_gallery_gallery_image_path(image.gallery, image), :confirm => "Are you sure?", :class => "awesome red delete", :method => "delete", :remote => true %>
+</div>

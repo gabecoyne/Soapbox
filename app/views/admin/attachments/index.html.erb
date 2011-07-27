@@ -1,0 +1,16 @@
+<ul class="image_subnav">
+  <li><%= link_to "All", admin_attachments_path, :class => "awesome light" %></li>
+  <% Attachment.content_types.each do |type| %>
+    <li><%= link_to type.pluralize.titleize, admin_attachments_path({:type => type}), :class => "awesome light" %></li>
+  <% end %>
+</ul>
+<% #debugger %>
+<% if params[:type] && 
+	(
+		FileTest.exist?(File.join(RAILS_ROOT, 'app', 'views', params[:controller],'_'+params[:type]+'.html.erb'))	|| 
+		FileTest.exist?(File.join(RAILS_ROOT, 'vendor', 'plugins', 'soapbox', 'app', 'views', params[:controller],'_'+params[:type]+'.html.erb'))
+	) %>
+  <%= render "admin/attachments/#{params[:type]}", :collection => collection %>
+<% else %>
+  <%= render "admin/shared/list", :list_fields => ["id","title","attachment", "attachable"] %>  
+<% end %>

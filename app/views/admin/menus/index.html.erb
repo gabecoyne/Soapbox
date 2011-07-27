@@ -1,0 +1,82 @@
+<%= link_to "+ Add #{resource_class.to_s}", new_resource_url, :class => "awesome large green floatRight" %>
+
+<div id="sources" class="menu" style="background:#eee">
+	<% menuable_models.each do |m| -%>
+		<%= link_to "-", "javascript:;", :onclick => "$('##{m.to_s.tableize}').slideToggle()", :class => "floatRight awesome light" %>
+		<h1><%= m.to_s.titleize.pluralize %></h1>
+		<ul id="<%= m.to_s.tableize %>">			
+			<li id="<%= m.to_s.tableize %>" data-type="<%= m.to_s %>" data-id="">Index View</li>
+			<% m.all.each do |item| -%>
+				<li id="<%= item.class.to_s.tableize.singularize %>_<%= item.id %>" data-type="<%= item.class.to_s %>" data-id="<%= item.id %>"><%= item.name rescue item.title rescue "" %></li>
+			<% end -%>
+		</ul>
+		<br /><br />
+	<% end -%>
+</div>
+
+<% collection.each do |menu| -%>
+	<div id="menu-<%= menu.id %>" class="menu">
+		<%= link_to "x", admin_menu_path(menu), :class => "floatRight awesome red small delete", :remote => true, :method => :delete, :confirm => "Are you sure?" %>
+		<h1><%= menu.name %></h1>
+		<ul id="menu_<%= menu.id %>" data-id="<%= menu.id %>">
+			<%= render :partial => "admin/menus/item", :collection => menu.menu_items %>	
+		</ul>
+	</div>
+<% end -%>
+
+<style type="text/css" media="screen">
+	.menu{ 
+		float: left; width: 18%; 
+		margin-right: 1%;
+		padding: 1%;
+		border: 1px solid #ddd; 
+		border-radius: 5px; 
+		-moz-border-radius: 5px; 
+		-webkit-border-radius: 5px;
+		padding: 20px;
+	}
+	.menu ul{
+		min-height: 30px;
+		background: #eee;
+		margin-top: 10px;
+	}
+	.menu ul li{
+		display: block;
+		border: 1px solid #ccc;
+		padding: 5px 10px;
+		cursor:  pointer;
+		background: #fff;
+	}
+</style>
+
+<script type="text/javascript" charset="utf-8">
+	$(function() {
+		// #TODO make it so you can only drag from the laft box info a menu box, not between
+		// #TODO allow label and link override
+		drag_manu = ""
+		$(".menu ul").sortable({ 
+			connectWith: ".menu ul",
+			start: function(event, ui){
+				start_menu = ui.item.parent().attr("id");
+			},
+			stop: function(event, ui){
+				// only add it if this is not a sort only...
+				if(start_menu != ui.item.parent().attr("id")){
+					$.post("/admin/menus/"+ui.item.parent().attr("data-id")+"/menu_items", { 
+						menu_item: { 
+							menu_id: ui.item.parent().attr("data-id"),
+							menuable_type: ui.item.attr("data-type"), 
+							menuable_id:ui.item.attr("data-id")
+						} 
+					});
+				}
+				$.post("<%= admin_save_order_path("MenuItem") %>", ui.item.parent().sortable("serialize",{ key:"order[]" }) );
+			}
+		});
+		$(".delete").click(function(){
+			$(this).parent().slideUp();
+		})
+	});	
+</script>
+
+

@@ -1,0 +1,29 @@
+<% if current_user && current_user.can?(:access_admin, "Global") %>
+<div id="admin_toolbar">
+		<%= link_to("Admin", "/admin", :class => "awesome small blue") %>
+		<%= link_to("Logout", destroy_user_session_path, :class => "awesome small black") %>
+		&nbsp; 
+		<strong>Logged in as:</strong> <u><%= current_user.email %></u>
+  <div>
+		<% if params[:controller] == "pages" %>
+			Template: 
+			<%= select_tag "page[template]", options_for_select(template_options("pages") , @page.template), 
+						:onchange => "$.ajax({
+							url: '#{admin_page_path(@page)}',
+							data: {
+								'page[template]': $('#page_template').val(),
+								'page[id]': #{@page.id},
+								authenticity_token: encodeURIComponent('#{form_authenticity_token.inspect}')
+							}, 
+							type: 'PUT',
+							success: function(){
+								location.reload(true);
+							}
+						})" 
+			%>
+		<% end %>
+		<%= link_to "Edit this #{resource.class}", eval("edit_admin_#{resource.class.to_s.tableize.singularize}_path(resource)"), :class => "awesome black" if params[:id] %>
+		<%= yield :admin_toolbar %>
+  </div>
+</div>
+<% end %>

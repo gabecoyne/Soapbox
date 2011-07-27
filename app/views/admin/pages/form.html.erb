@@ -1,0 +1,68 @@
+<%= semantic_form_for([:admin, @page], :html => {:multipart => true, :class => "formtastic"}) do |form| %>
+
+  <%= render "admin/shared/form_buttons", :form => form %>
+	
+	<%= render "admin/shared/form_errors" %>
+
+	<div id="right">
+		<%= link_to "View Page &raquo;".html_safe, page_path(@page), :class => "awesome large floatRight grey" rescue "" %>
+  	<%= form.inputs do -%>
+			<%= form.input :private, :hint => "login required for viewing" %>
+			<%= form.input :publish, :hint => "publicly visible" %>
+			<%= form.input :homepage, :hint => "available at /" %>
+			<%= form.input :template, :collection => template_options("pages") %>
+			<%= form.input :parent_id, :as => :select, :collection => Page.all %>
+			<%= form.input :nav_label, :hint => "Link label in navigation." %>
+			<%= form.input :redirect, :hint => "This page will just point to another page or site." %>
+			<%= form.input :release_at, :as => :string, :input_html => { :class => "datetime" }, :hint => "page will appear publicly at this time" %>
+			<%= form.input :expire_at, :as => :string, :input_html => { :class => "datetime" }, :hint => "page will no longer appear publicly at this time" %>
+			<%= form.input :meta_keywords, :as => :text, :input_html => { :style => "height:100px" } %>
+			<%= form.input :meta_description, :as => :text, :input_html => { :style => "height:100px" } %>
+			<% # form.input :position %>
+			<% # form.input :slug %>
+	  <%- end -%>
+	</div>
+	<div id="left">
+	
+		<div class="tabs">
+		
+			<ul>
+				<li><a href="#tab_main">Main</a></li>
+				<li><a href="#tab_area_1">Area 1</a></li>
+				<li><a href="#tab_area_2">Area 2</a></li>
+			</ul>		
+	
+			<div id="tab_main">
+			  
+			  	<%= form.inputs do -%>
+						<%= form.input :title, 
+								:input_html => { :class => "large" }, 
+								:hint => @page.slug, 
+								:required => true %>
+						<%= form.input :body, :as => :text, 
+								:input_html => { :class => "editor" } %>
+				  <%- end -%>
+			  
+			</div>
+			
+			<div id="tab_area_1">
+		  	<%= form.inputs do -%>
+					<%= form.input :area_1, :as => :text, 
+						:input_html => { :class => "editor" } %>
+				<% end %>
+			</div>
+			
+			<div id="tab_area_2">
+		  	<%= form.inputs do -%>
+					<%= form.input :area_2, :as => :text, 
+						:input_html => { :class => "editor" } %>
+				<% end %>
+			</div>
+	
+		</div>
+
+	</div>
+
+   <%= render "admin/shared/form_buttons", :form => form %>
+
+<% end %>

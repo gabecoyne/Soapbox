@@ -1,0 +1,33 @@
+<%
+	# only arg used is list_fields
+	# render "admin/shared/order", :title_field => "name", :class_name => "Page"
+	singular_name = params[:controller].sub("admin/","").singularize if singular_name.nil?
+	title_field = "title" if title_field.nil?
+	class_name = singular_name.camelize
+	plural_name = singular_name.pluralize
+	collection = eval("#{class_name}.all") if collection.nil?
+%>
+<h1>Order <%= plural_name.titleize %> <small>(drag and drop to order)</small></h1><br />
+<ul class="sortable">
+	<% collection.each do |item| %>
+		<li id="id_<%= item.id %>"><%= item.send(title_field) %></li>
+	<% end %>
+</ul>
+
+<style type="text/css" media="screen">
+	.sortable li{border: 1px solid #ccc; cursor: move;padding: 10px;}
+	.sortable li:hover{background: #eee;}
+</style>
+
+<% content_for :footer do %>
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			$(".sortable").sortable({
+				stop: function(event, ui) {
+					// will send ids and positions to generic save_order action
+					$.post("<%= admin_save_order_path(class_name) %>",$(".sortable").sortable("serialize",{ key:"order[]" }))
+				}
+			});
+		});
+	</script>
+<% end %>
