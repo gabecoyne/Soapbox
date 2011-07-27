@@ -15,18 +15,7 @@ Description goes here.
 == Copyright
 
 Copyright (c) 2011 Gabe Coyne. See LICENSE.txt for
-further details.
-
-== Install
-
-Copy vendor/plugins/soapbox/public/soapbox files to /public/soapbox
-
-
-== Running on Ruby 1.9.2
-
-  - autoloading ruby 1.9.2 from .rvmrc
-  - http://sirupsen.com/get-started-right-with-rvm/
-  
+further details.  
 
 == Scaffold Generator
 
@@ -61,11 +50,10 @@ rails g soapbox_scaffold plugin_name field:type field:type
 
 == Todos
 
-- figure out how to extend models from application - /log/page_extensions.rb - module
+- shortcodes - [partial:locals,args] - render "shortcodes/partial", :params => args.split(",")
+- add default permission stuff for shared list and admin_controller - create, edit, delete, admin, etc
 - analytics - PageRankr - http://rubydoc.info/gems/PageRankr/2.0.1/frames
 - gitsatisfaction for community support
-- add default permission stuff for shared list and admin_controller - create, edit, delete, admin, etc
-- wizywig short codes - [snippet:key], [setting:admin_email], [cropper:image_name,width,height]
 - caching - memcache
 - default error docs
 - sending email
@@ -73,7 +61,6 @@ rails g soapbox_scaffold plugin_name field:type field:type
 
 == Phase 2
 
-- shortcodes - [partial:locals,args] - render "shortcodes/partial", :params => args.split(",")
 - image galleries - bulk upload, ordering, captions
 - multi file uploader with progress - https://github.com/blueimp/jQuery-File-Upload/wiki/jQuery-File-Upload-for-Rails-3
 - tn cropper - view helper: cropper(filename, width, height) - flash tool - image processing on backend 

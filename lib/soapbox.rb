@@ -12,7 +12,7 @@ require 'aws/s3'
 require "acts_as_tree"
 require "acts_as_list"
 require "garb"
-# require 'polypaperclip' #FIXME error loading Paperclip::Glue
+require 'polypaperclip' #FIXME error loading Paperclip::Glue
 
 module Soapbox
 
