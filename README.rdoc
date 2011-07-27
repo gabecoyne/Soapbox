@@ -46,6 +46,7 @@ rails g soapbox_scaffold plugin_name field:type field:type
 - front end edit buttons
 - keyed contents (snippets)
 - tags - acts_as_taggable_on
+- image galleries - bulk upload, ordering, captions - nivo viewer and prettyPhoto viewer
 
 
 == Todos
@@ -61,8 +62,7 @@ rails g soapbox_scaffold plugin_name field:type field:type
 
 == Phase 2
 
-- image galleries - bulk upload, ordering, captions
-- multi file uploader with progress - https://github.com/blueimp/jQuery-File-Upload/wiki/jQuery-File-Upload-for-Rails-3
+- multi file uploader with progress for files plugin - https://github.com/blueimp/jQuery-File-Upload/wiki/jQuery-File-Upload-for-Rails-3
 - tn cropper - view helper: cropper(filename, width, height) - flash tool - image processing on backend 
   - https://github.com/jschwindt/rjcrop
   - http://dev.w3.org/2006/webapi/FileAPI/
@@ -73,5 +73,3 @@ rails g soapbox_scaffold plugin_name field:type field:type
 
 - rails engines - enginex - http://coding.smashingmagazine.com/2011/06/23/a-guide-to-starting-your-own-rails-engine-gem/
 - plugin as gem: http://stackoverflow.com/questions/4239078/rails-3-define-plugin-gem-dependency
-
-[snippet:tag_line]
