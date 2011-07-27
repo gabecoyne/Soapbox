@@ -1,5 +1,2 @@
-class Membership < ActiveRecord::Base
-  has_paper_trail
-  belongs_to :group
-  belongs_to :user
+class Membership < Soapbox::Membership
 end

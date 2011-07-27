@@ -1,9 +1,4 @@
-class SoapboxPage < ActiveRecord::Base
-  
-  # want to do 
-  # Page < SoapboxPage
-  # error NoMethodError: undefined method `attachment_file_name' for nil:NilClass
-  #	from /Library/Ruby/Gems/1.8/gems/polypaperclip-0.1.8/lib/polypaperclip.rb:28:in `primary_image
+class Soapbox::Page < ActiveRecord::Base
   
   set_table_name "pages"
   

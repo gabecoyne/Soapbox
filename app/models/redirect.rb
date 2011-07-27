@@ -1,2 +1,2 @@
-class Redirect < ActiveRecord::Base
+class Redirect < Soapbox::Redirect
 end

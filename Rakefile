@@ -17,10 +17,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "soapbox"
   gem.homepage = "http://github.com/gabecoyne/soapbox"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "gabe@coyne-design.com"
-  gem.authors = ["Gabe Coyne"]
+  gem.summary = %Q{rails cms by Killit Creative}
+  gem.description = %Q{manage pages, users, permissions, settings, analytics, files, users, and extend}
+  gem.email = "gabe@killitcreative.com"
+  gem.authors = ["Gabe Coyne", "Killit Creative"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
