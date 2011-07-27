@@ -1,0 +1,24 @@
+#admin_toolbar{
+	background: #333;
+	height: 30px;
+	padding: 5px 10px;
+	padding-bottom: 0px;
+	color: #999;
+	border-bottom: 1px solid #666;
+}
+#admin_toolbar div{
+	float: right;
+}
+#admin_toolbar cite{
+	color: #999;
+}
+#admin_toolbar #logo{
+	font-size: 2em;
+	line-height: 0em;
+	margin-top: 13px;
+	font-weight: bold;
+	float: none;
+}
+#admin_toolbar u{
+	color: #ccc;
+}

@@ -1,0 +1,127 @@
+/* @charset "UTF-8";*/
+/* CSS Document */
+/* Global Defaults */
+
+html,body{
+	height: 100%;
+}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,
+pre,form,fieldset,table,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+	margin:0;
+	padding:0;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+body {
+  font: .75em/1.5 Arial, Helvetica, sans-serif;
+}
+ul{
+	list-style: none;
+}
+a:active{
+  outline: none;
+}
+:focus{
+  -moz-outline-style: none;
+}
+
+/* Headlines */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height:1.25em;
+}
+h1{ font-size:2em; }
+h2{ font-size:1.5em; }
+h3{ font-size:1.25em; }
+h4{ font-size:1.1em; }
+h5, h6{ font-size:1em; }
+
+/* Text Styles */
+p, th, td, li, dd, dt, ul, ol, blockquote, q, acronym, abbr, input, select, textarea {
+  font: normal normal normal 1em/1.75 Arial, Helvetica, sans-serif;
+}
+input, select{
+  line-height:1em;
+  padding:2px;
+}
+p{
+  margin:1em 0 1em 0;
+}
+blockquote {
+  margin: 1.25em;
+  padding: 1.25em
+}
+q {
+  font-style: italic;
+}
+acronym, abbr {
+  cursor: help;
+  border-bottom: 1px dashed;
+}
+small {
+  font-size:.85em;
+}
+big {
+  font-size:1.2em;
+}
+
+/* Links and Images */
+img {
+  border: none;
+}
+
+/* Tables */
+table {
+  border: none;
+  border-collapse:collapse;
+  border-spacing:0;
+}
+td,th{
+  text-align:left;
+  vertical-align:top;
+}
+
+/* Forms */
+form {
+  display: inline;
+}
+label,a {
+  cursor: pointer;
+}
+/*div.alt{
+	display: none;
+}*/
+
+.clear { clear: both; }
+/* Common Classes */
+/*.upper{ text-transform: uppercase; }
+.clear { clear: both; }
+.floatLeft { float: left; }
+.floatRight { float: right; }
+.textLeft { text-align: left; }
+.textRight { text-align: right; }
+.textCenter { text-align: center; }
+.textJustify { text-align: justify; }
+.blockCenter { display: block; margin-left: auto; margin-right: auto; }
+.light{ font-weight: normal; }
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+.noindent { margin-left: 0; padding-left: 0; }
+.nomargin { margin: 0; }
+.nopadding { padding: 0; }
+.nobullet { list-style: none; list-style-image: none; }
+.hide{display: none; visibility: hidden;}
+.show{display: ; visibility: visible;}*/
+
+.imageRight{ float:right;clear:right;margin:0 0 20px 20px; }
+.imageLeft{ float:left;clear:left;margin:0 20px 20px 0; }
