@@ -73,6 +73,7 @@ rails g soapbox_scaffold plugin_name field:type field:type
 
 == Phase 2
 
+- shortcodes - [partial:locals,args] - render "shortcodes/partial", :params => args.split(",")
 - image galleries - bulk upload, ordering, captions
 - multi file uploader with progress - https://github.com/blueimp/jQuery-File-Upload/wiki/jQuery-File-Upload-for-Rails-3
 - tn cropper - view helper: cropper(filename, width, height) - flash tool - image processing on backend 
