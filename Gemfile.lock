@@ -135,6 +135,7 @@ DEPENDENCIES
   jeweler (~> 1.6.0)
   paper_trail (~> 2)
   polypaperclip (= 0.1.8)
+  rails (~> 3.0.0)
   rcov
   shoulda
   will_paginate (= 2.3.15)

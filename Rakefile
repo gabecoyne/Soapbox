@@ -17,7 +17,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "soapbox"
   gem.homepage = "http://github.com/gabecoyne/soapbox"
   gem.license = "MIT"
-  gem.summary = %Q{rails cms by Killit Creative}
+  gem.summary = %Q{Rails CMS by Killit Creative}
   gem.description = %Q{manage pages, users, permissions, settings, analytics, files, users, and extend}
   gem.email = "gabe@killitcreative.com"
   gem.authors = ["Gabe Coyne", "Killit Creative"]

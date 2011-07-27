@@ -2,6 +2,7 @@ source "http://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
 
+gem "rails", "~>3.0.0"
 gem "devise", "1.1.2"
 gem 'formtastic', "1.2.3"
 gem 'polypaperclip', "0.1.8"
