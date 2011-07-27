@@ -83,6 +83,7 @@ rails g soapbox_scaffold plugin_name field:type field:type
 
 == Reference
 
+- rails engines - enginex - http://coding.smashingmagazine.com/2011/06/23/a-guide-to-starting-your-own-rails-engine-gem/
 - plugin as gem: http://stackoverflow.com/questions/4239078/rails-3-define-plugin-gem-dependency
 
 [snippet:tag_line]
