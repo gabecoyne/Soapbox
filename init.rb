@@ -1,3 +1,4 @@
+#FIXME not used in engine?
 # includes all helpers
 Dir[File.dirname(__FILE__) + "/app/helpers/*.rb"].each {|file| 
   require file
