@@ -1,6 +1,6 @@
 = soapbox
 
-Description goes here.
+Soapbox is a rails 3 cms. It manages pages, users, permissions, redirects, galleries, attachments, menus, and more out of the box. It's easy to extend to manage all kinds of other content and attach files and images to them and manage permissions over them.
 
 == Contributing to soapbox
  

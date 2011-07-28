@@ -29,7 +29,6 @@
 </script>
 
 <div class="files">
-	<% debugger %>
 	<%= form_for [:admin, @gallery, @gallery.gallery_images.new], :html => { :class => "upload upload_#{@gallery.id}", :multipart => true } do |f| %>
 		<div class="imageupload-buttonbar"> 
 			<label class="imageinput-button"> 

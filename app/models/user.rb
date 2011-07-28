@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   
   has_many :memberships, :dependent => :destroy
   has_many :groups, :through => :memberships
+  include Soapbox::User if File.exists? "app/models/soapbox/user.rb"
   
   def can?(action, object)
     return true if self.super_admin?
@@ -26,5 +27,4 @@ class User < ActiveRecord::Base
   def created?(object)
     # look up the papertrail to see if this user created this object
   end
-  
 end

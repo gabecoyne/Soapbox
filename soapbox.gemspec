@@ -154,7 +154,6 @@ Gem::Specification.new do |s|
     "app/views/sitemap/sitemap.rxml",
     "config/permissions.yml.template",
     "config/routes.rb",
-    "init.rb",
     "install.rb",
     "lib/generators/soapbox_migration/soapbox_migration_generator.rb",
     "lib/generators/soapbox_migration/templates/migration.rb",
@@ -167,9 +166,9 @@ Gem::Specification.new do |s|
     "lib/generators/soapbox_scaffold/templates/views/admin/index.html.erb",
     "lib/generators/soapbox_scaffold/templates/views/index.html.erb",
     "lib/generators/soapbox_scaffold/templates/views/show.html.erb",
-    "lib/paperclip.rb",
     "lib/soapbox.rb",
     "lib/soapbox/engine.rb",
+    "lib/soapbox/paperclip.rb",
     "lib/soapbox/version.rb",
     "lib/states.rb",
     "public/404.html",
@@ -579,6 +578,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<acts_as_tree>, [">= 0"])
       s.add_runtime_dependency(%q<acts_as_list>, [">= 0"])
       s.add_runtime_dependency(%q<garb>, [">= 0"])
+      s.add_runtime_dependency(%q<bartt-ssl_requirement>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.0"])
@@ -598,6 +598,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<acts_as_tree>, [">= 0"])
       s.add_dependency(%q<acts_as_list>, [">= 0"])
       s.add_dependency(%q<garb>, [">= 0"])
+      s.add_dependency(%q<bartt-ssl_requirement>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
@@ -618,6 +619,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<acts_as_tree>, [">= 0"])
     s.add_dependency(%q<acts_as_list>, [">= 0"])
     s.add_dependency(%q<garb>, [">= 0"])
+    s.add_dependency(%q<bartt-ssl_requirement>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.0"])

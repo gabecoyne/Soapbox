@@ -16,6 +16,7 @@ gem 'aws-s3', :require => 'aws/s3'
 gem "acts_as_tree"
 gem "acts_as_list"
 gem "garb"
+gem "bartt-ssl_requirement", :require => 'ssl_requirement'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

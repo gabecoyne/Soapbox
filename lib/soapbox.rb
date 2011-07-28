@@ -12,15 +12,23 @@ require 'aws/s3'
 require "acts_as_tree"
 require "acts_as_list"
 require "garb"
+require "ssl_requirement"
 
 require 'paperclip'
-require 'soapbox/paperclip'
+require 'soapbox/paperclip' # this adds the paperclip.yml support
 require 'polypaperclip'
 
 # load all helpers
 Dir[File.dirname(__FILE__) + "/../app/helpers/*.rb"].each {|file| 
+  puts "[soapbox] helper #{file}"
   require file
   ActionView::Base.send :include, eval(file.split("/").last.split(".").first.camelize)
+}
+
+# load all soapbox model extensions
+Dir["app/models/soapbox/*.rb"].each {|file|
+  puts "[soapbox] model extension #{file}"
+  require file
 }
 
 module Soapbox
