@@ -1,5 +1,5 @@
 # Requires
-require "active_support/dependencies"
+# require "active_support/dependencies"
 require "devise"
 require 'formtastic'
 require 'paper_trail'
@@ -12,7 +12,15 @@ require 'aws/s3'
 require "acts_as_tree"
 require "acts_as_list"
 require "garb"
-require 'polypaperclip' #FIXME error loading Paperclip::Glue
+
+require 'paperclip'
+require 'soapbox/paperclip'
+require 'polypaperclip'
+
+Dir[File.dirname(__FILE__) + "/../app/helpers/*.rb"].each {|file| 
+  require file
+  ActionView::Base.send :include, eval(file.split("/").last.split(".").first.camelize)
+}
 
 module Soapbox
 

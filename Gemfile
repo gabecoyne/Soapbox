@@ -5,7 +5,7 @@ source "http://rubygems.org"
 gem "rails", "~>3.0.0"
 gem "devise", "1.1.2"
 gem 'formtastic', "1.2.3"
-gem 'polypaperclip', "~> 0.1"
+gem 'polypaperclip', "~> 0.1.9"
 gem 'paper_trail', '~> 2'
 gem "will_paginate", "2.3.15"
 gem 'acts-as-taggable-on'
