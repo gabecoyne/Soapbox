@@ -1,8 +1,8 @@
 class Soapbox::Group < ActiveRecord::Base
   has_paper_trail
-  has_many :permissions, :dependent => :destroy
-  has_many :memberships, :dependent => :destroy
-  has_many :users, :through => :memberships
+  has_many :permissions, :dependent => :destroy, :class_name => "::Permission"
+  has_many :memberships, :dependent => :destroy, :class_name => "::Membership"
+  has_many :users, :through => :memberships, :class_name => "::User"
   
   def can?(action, object)
     begin

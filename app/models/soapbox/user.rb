@@ -7,8 +7,8 @@ class Soapbox::User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :super_admin, :remember_me, :group_ids
   acts_as_indexed :fields => [:email]
   
-  has_many :memberships, :dependent => :destroy
-  has_many :groups, :through => :memberships
+  has_many :memberships, :dependent => :destroy, :class_name => "::Membership"
+  has_many :groups, :through => :memberships, :class_name => "::Group"
   
   def can?(action, object)
     return true if self.super_admin?

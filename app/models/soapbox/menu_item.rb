@@ -1,5 +1,5 @@
 class Soapbox::MenuItem < ActiveRecord::Base
-  belongs_to :menu
+  belongs_to :menu, :class_name => "::Menu"
   belongs_to :menuable, :polymorphic => true
   acts_as_list
   default_scope order("position asc")

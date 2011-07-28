@@ -1,5 +1,5 @@
 class Soapbox::Gallery < ActiveRecord::Base
-  has_many :gallery_images
+  has_many :gallery_images, :class_name => "::GalleryImage"
   belongs_to :galleriable, :polymorphic => true
   
   def self.has_images_for(name)

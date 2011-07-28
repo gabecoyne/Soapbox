@@ -1,5 +1,5 @@
 class Soapbox::Permission < ActiveRecord::Base
-  belongs_to :group
+  belongs_to :group, :class_name => "::Group"
   
   def self.can?(action, object)
     if action.class == "Array"

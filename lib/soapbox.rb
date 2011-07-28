@@ -17,6 +17,7 @@ require 'paperclip'
 require 'soapbox/paperclip'
 require 'polypaperclip'
 
+# load all helpers
 Dir[File.dirname(__FILE__) + "/../app/helpers/*.rb"].each {|file| 
   require file
   ActionView::Base.send :include, eval(file.split("/").last.split(".").first.camelize)
