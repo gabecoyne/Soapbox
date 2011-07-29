@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{soapbox}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Gabe Coyne}, %q{Killit Creative}]
@@ -142,7 +142,6 @@ Gem::Specification.new do |s|
     "app/views/soapbox_mailer/email_form.text.erb",
     "config/permissions.yml.template",
     "config/routes.rb",
-    "install.rb",
     "lib/generators/soapbox_migration/soapbox_migration_generator.rb",
     "lib/generators/soapbox_migration/templates/migration.rb",
     "lib/generators/soapbox_scaffold/soapbox_scaffold_generator.rb",
