@@ -1,0 +1,8 @@
+<% if @params[:email][:content] %>
+	<%= strip_tags Content[@params[:email][:content]] %>
+<% end %>
+
+<% @params[:email].each do |key,val| -%>
+	<% next unless ["to", "from", "subject", "content"].index(key).nil? %>
+	<%= key %>: <%= val %>
+<% end -%>

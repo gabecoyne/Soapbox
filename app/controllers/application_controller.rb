@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   
   include SslRequirement
   
+  def email_form
+    # send mail stuff here
+    SoapboxMailer.email_form(params).deliver
+    flash[:notice] = "Your email has been sent. Thanks."
+    redirect_to :back
+  end
+  
   def after_sign_in_path_for(resource)
     if resource.is_a?(Member)
       goto = home_members_path

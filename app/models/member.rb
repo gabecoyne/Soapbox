@@ -7,4 +7,8 @@ class Member < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   include Soapbox::Member if File.exists? "app/models/soapbox/member.rb"
+
+  def after_sign_in_path_for(member)
+    members_home_path
+  end
 end

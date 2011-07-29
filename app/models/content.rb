@@ -5,6 +5,7 @@ class Content < ActiveRecord::Base
   acts_as_indexed :fields => [:body, :key, :note]
   include Soapbox::Content if File.exists? "app/models/soapbox/content.rb"
   
+  # Content[name]
   def self.[](key)
     find_or_create_by_key(key).try(:body)
   end

@@ -1,0 +1,13 @@
+<% if @params[:email][:content] %>
+	<%= Content[@params[:email][:content]].html_safe %>
+<% end %>
+
+<table>	
+	<% @params[:email].each do |key,val| -%>
+		<% next unless ["to", "from", "subject", "content"].index(key).nil? %>
+		<tr>
+			<td style="padding-right:20px"><strong><%= key %></strong></td>
+			<td><%= val %></td>
+		</tr>
+	<% end -%>
+</table>

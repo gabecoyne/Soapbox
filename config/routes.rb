@@ -1,6 +1,6 @@
 Rails.application.routes.draw do |map|
 
-  devise_for :members 
+  devise_for :members
   devise_for :users, :controllers => { :sessions => "devise/sessions" }
 
   # Resources
@@ -46,6 +46,8 @@ Rails.application.routes.draw do |map|
     post "/save_tree/:model"  => "admin#save_tree",  :as => "save_tree"
     get "/wysiwyg/:model/:id/:field"  => "admin#wysiwyg",  :as => "wysiwyg"
   end  
+
+  post "/email_form"  => "application#email_form",  :as => "email_form"
   
   get "sitemap.xml" => "sitemap#sitemap"
   
