@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Gabe Coyne}, %q{Killit Creative}]
-  s.date = %q{2011-07-28}
+  s.date = %q{2011-07-29}
   s.description = %q{manage pages, users, permissions, settings, analytics, files, users, and extend}
   s.email = %q{gabe@killitcreative.com}
   s.extra_rdoc_files = [
@@ -58,6 +58,7 @@ Gem::Specification.new do |s|
     "app/helpers/page_helper.rb",
     "app/helpers/plugin_helper.rb",
     "app/helpers/soapbox_helper.rb",
+    "app/mailers/soapbox_mailer.rb",
     "app/models/attachment.rb",
     "app/models/content.rb",
     "app/models/gallery.rb",
@@ -72,21 +73,6 @@ Gem::Specification.new do |s|
     "app/models/plugin.rb",
     "app/models/redirect.rb",
     "app/models/setting.rb",
-    "app/models/soapbox/attachment.rb",
-    "app/models/soapbox/content.rb",
-    "app/models/soapbox/gallery.rb",
-    "app/models/soapbox/gallery_image.rb",
-    "app/models/soapbox/group.rb",
-    "app/models/soapbox/member.rb",
-    "app/models/soapbox/membership.rb",
-    "app/models/soapbox/menu.rb",
-    "app/models/soapbox/menu_item.rb",
-    "app/models/soapbox/page.rb",
-    "app/models/soapbox/permission.rb",
-    "app/models/soapbox/plugin.rb",
-    "app/models/soapbox/redirect.rb",
-    "app/models/soapbox/setting.rb",
-    "app/models/soapbox/user.rb",
     "app/models/user.rb",
     "app/views/admin/analytics/index.html.erb",
     "app/views/admin/attachments/_image.html.erb",
@@ -152,6 +138,8 @@ Gem::Specification.new do |s|
     "app/views/pages/index.html.erb",
     "app/views/pages/templates/default.html.erb",
     "app/views/sitemap/sitemap.rxml",
+    "app/views/soapbox_mailer/email_form.html.erb",
+    "app/views/soapbox_mailer/email_form.text.erb",
     "config/permissions.yml.template",
     "config/routes.rb",
     "install.rb",
