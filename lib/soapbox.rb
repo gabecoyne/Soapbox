@@ -13,6 +13,7 @@ require "acts_as_tree"
 require "acts_as_list"
 require "garb"
 require "ssl_requirement"
+require 'states'
 
 require 'paperclip'
 require 'soapbox/paperclip' # this adds the paperclip.yml support
