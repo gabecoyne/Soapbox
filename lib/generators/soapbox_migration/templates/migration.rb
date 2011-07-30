@@ -232,6 +232,11 @@ class CreateSoapboxTables < ActiveRecord::Migration
 
     add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
     
+    puts "make sure to run - rake db:migrate"
+    puts "you'll also want to add a super admin so you can login to /admin"
+    puts "rails c"
+    puts 'User.create(:email => "your@email.address", :password => "xxxxxx", :super_user => true)'
+    
   end
   
   def self.down

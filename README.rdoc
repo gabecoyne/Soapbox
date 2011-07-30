@@ -1,6 +1,6 @@
 = soapbox
 
-Soapbox is a rails 3 cms by {killitcreative}[link:http://killitcreative.com]. It manages pages, users, permissions, redirects, galleries, attachments, menus, and more out of the box. It's easy to extend to manage all kinds of other content and attach files and images to them and manage permissions over them.
+Soapbox is a Rails 3 CMS by {Killit Creative}[link:http://killitcreative.com]. It manages pages, users, permissions, redirects, galleries, attachments, menus, and more out of the box. It's easy to extend to manage all kinds of other content and attach files and images to them and manage permissions over them.
 
 == Contributing to soapbox
  
@@ -16,6 +16,37 @@ Soapbox is a rails 3 cms by {killitcreative}[link:http://killitcreative.com]. It
 
 Copyright (c) 2011 Gabe Coyne. See LICENSE.txt for
 further details.  
+
+== Install
+
+Add soapbox to your gem file
+
+	gem 'soapbox'
+	
+Run 'bundle install'
+
+Generate soapbox tables
+
+	rails g soapbox_migration
+	rake db:migrate
+	
+Create a super user to admin the site
+
+	rails c
+  User.create(:email => "your@email.address", :password => "xxxxxx", :super_user => true)
+
+Fire it up
+
+	rails s
+	
+You have everything you need out of the gate for a super basic site
+
+Then start customizing
+
+- Start adding page templates by creating new layout files in app/views/pages/templates
+- Start adding pages by login into /admin
+- Add your google analytics credentials to /admin/analytics
+
 
 == Scaffold Generator
 
