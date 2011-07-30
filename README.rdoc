@@ -19,7 +19,7 @@ further details.
 
 == Install
 
-Add soapbox to your gem file
+Add soapbox to your Gemfile
 
 	gem 'soapbox'
 	

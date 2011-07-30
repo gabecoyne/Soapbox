@@ -17,6 +17,10 @@ class SoapboxMigrationGenerator < Rails::Generators::Base
   end
 
   def create_migration_file
-    migration_template 'migration.rb', 'db/migrate/create_soapbox_tables.rb'
+    migration_template 'migration.rb', 'db/migrate/create_soapbox_tables.rb'    
+    puts "make sure to run - rake db:migrate"
+    puts "you'll also want to add a super admin so you can login to /admin"
+    puts "rails c"
+    puts 'User.create(:email => "your@email.address", :password => "xxxxxx", :super_user => true)'
   end
 end

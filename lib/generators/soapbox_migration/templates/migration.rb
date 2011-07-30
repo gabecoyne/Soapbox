@@ -232,10 +232,20 @@ class CreateSoapboxTables < ActiveRecord::Migration
 
     add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
     
-    puts "make sure to run - rake db:migrate"
-    puts "you'll also want to add a super admin so you can login to /admin"
-    puts "rails c"
-    puts 'User.create(:email => "your@email.address", :password => "xxxxxx", :super_user => true)'
+    Plugin.create(:title => "Pages", :route => "admin_pages_path", :active => true)
+    Plugin.create(:title => "Users", :route => "admin_pages_path", :active => true)
+    Plugin.create(:title => "Files", :route => "admin_pages_path", :active => true)
+    
+    Plugin.create(:title => "Menus", :route => "admin_menus_path", :active => true, :parent => Page.find_by_title("Page"))
+    Plugin.create(:title => "Redirects", :route => "admin_redirects_path", :active => true, :parent => Page.find_by_title("Page"))
+    Plugin.create(:title => "Organize", :route => "tree_admin_pages_path", :active => true, :parent => Page.find_by_title("Page"))
+    
+    Plugin.create(:title => "Groups", :route => "admin_groups_path", :active => true, :parent => Page.find_by_title("Users"))
+    Plugin.create(:title => "Members", :route => "admin_members_path", :active => true, :parent => Page.find_by_title("Users"))
+    
+    Setting.create({:name => "site_name", :value => "Soapbox Site"})
+    Setting.create({:name => "admin_email", :value => "info@mydomain.com"})
+    Setting.create({:name => "copyright", :value => "Soapbox CMS"})
     
   end
   
