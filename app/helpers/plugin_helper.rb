@@ -7,7 +7,7 @@ module PluginHelper
     end
     html = ""
   	html << "<ul id='#{ id || "" }'>"
-    permissions = YAML::load(File.open("#{RAILS_ROOT}/config/permissions.yml"))
+    permissions = YAML::load(File.open("#{::Rails.root.to_s}/config/permissions.yml"))
     plugins.each do |plugin|
       next if permissions[plugin] && !current_user.can?(["admin","create"],plugin)
       html << "<li #{ plugin.children.empty? ? "" : "class='has_sub'" }>"

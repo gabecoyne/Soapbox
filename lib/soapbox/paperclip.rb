@@ -22,8 +22,8 @@ module Paperclip
         :preserve_files        => false
       }
 
-      if defined?(RAILS_ROOT) and File.exists?("#{RAILS_ROOT}/config/paperclip.yml")
-        @default_options.merge!(YAML.load_file("#{RAILS_ROOT}/config/paperclip.yml")[RAILS_ENV].symbolize_keys) rescue nil
+      if defined?(::Rails.root.to_s) and File.exists?("#{::Rails.root.to_s}/config/paperclip.yml")
+        @default_options.merge!(YAML.load_file("#{::Rails.root.to_s}/config/paperclip.yml")[RAILS_ENV].symbolize_keys) rescue nil
       end
       
     end

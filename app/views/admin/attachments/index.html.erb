@@ -7,8 +7,8 @@
 <% #debugger %>
 <% if params[:type] && 
 	(
-		FileTest.exist?(File.join(RAILS_ROOT, 'app', 'views', params[:controller],'_'+params[:type]+'.html.erb'))	|| 
-		FileTest.exist?(File.join(RAILS_ROOT, 'vendor', 'plugins', 'soapbox', 'app', 'views', params[:controller],'_'+params[:type]+'.html.erb'))
+		FileTest.exist?(File.join(::Rails.root.to_s, 'app', 'views', params[:controller],'_'+params[:type]+'.html.erb'))	|| 
+		FileTest.exist?(File.join(::Rails.root.to_s, 'vendor', 'plugins', 'soapbox', 'app', 'views', params[:controller],'_'+params[:type]+'.html.erb'))
 	) %>
   <%= render "admin/attachments/#{params[:type]}", :collection => collection %>
 <% else %>

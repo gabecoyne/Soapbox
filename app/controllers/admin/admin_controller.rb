@@ -106,6 +106,6 @@ protected
     @resources.paginate(:page => params[:page], :per_page => 20)
   end
   def get_permissions    
-    @permissions = YAML::load(File.open("#{RAILS_ROOT}/config/permissions.yml"))
+    @permissions = YAML::load(File.open("#{::Rails.root.to_s}/config/permissions.yml"))
   end
 end
