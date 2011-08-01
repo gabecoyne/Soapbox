@@ -1,9 +1,5 @@
 Rails.application.routes.draw do |map|
   
-  if "development" == Rails.env # cheating to get images in development when using production data
-    get "/system/*path" => redirect {|params| URI.encode("http://s3.amazonaws.com/#{YAML.load_file("#{::Rails.root.to_s}/config/s3.yml")["production"]["bucket"]}/public/system/#{params[:path]}") }
-  end
-  
   devise_for :members
   devise_for :users, :controllers => { :sessions => "devise/sessions" }
 
