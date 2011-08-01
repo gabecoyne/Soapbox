@@ -81,10 +81,10 @@ GEM
       cocaine (>= 0.0.2)
       mime-types
     polyglot (0.3.2)
-    polypaperclip (0.1.8)
+    polypaperclip (0.1.13)
       paperclip (~> 2.3)
       rails (~> 3.0.0)
-      rake (= 0.8.7)
+      rake (~> 0.8.7)
     rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -135,7 +135,7 @@ DEPENDENCIES
   inherited_resources (= 1.2.2)
   jeweler (~> 1.6.0)
   paper_trail (~> 2)
-  polypaperclip (= 0.1.8)
+  polypaperclip (= 0.1.13)
   rails (~> 3.0.0)
   rcov
   shoulda
