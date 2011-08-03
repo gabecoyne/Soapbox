@@ -22,7 +22,9 @@ class Page < ActiveRecord::Base
   def title_bread_crumb
     title = self.title
     page = self
-    until page.parent.nil?
+    i = 0
+    until page.parent.nil? || page.parent_id == page.id  || i > 10
+      i += 1
       page = page.parent
       title += " &raquo; #{page.title}".html_safe
     end
@@ -32,7 +34,9 @@ class Page < ActiveRecord::Base
   def parents
     parents = [self]
     page = self
-    until page.nil?
+    i = 0
+    until page.nil? || page.parent_id == page.id  || i > 10
+      i += 1
       page = page.parent
       parents << page unless page.nil?
     end
