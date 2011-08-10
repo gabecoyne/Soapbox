@@ -33,7 +33,7 @@ Generate soapbox tables
 Create a super user to admin the site
 
 	rails c
-  User.create(:email => "your@email.address", :password => "xxxxxx", :super_user => true)
+  User.create(:email => "your@email.address", :password => "xxxxxx", :super_admin => true)
 
 Fire it up
 

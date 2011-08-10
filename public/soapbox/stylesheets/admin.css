@@ -75,7 +75,7 @@ div.pad{
 	display: inline-block;
 	background: #666;
 	border-radius: 5px; 
-	padding: 6px 10px;
+	padding: 5px 10px 6px;
 	text-decoration: none;
 	font-weight: bold;
 	color: #ccc;
@@ -182,32 +182,6 @@ table.list tr:nth-child(even) td{
 table.list tr:hover td{
 	background: #eee;
 }
-
-.pagination {
-	padding: 5px;
-	display: block;
-}
-.pagination a{
-	font-weight: bold;
-	padding: 4px 10px 4px 10px;
-	background: #888;
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px;
-	text-decoration: none;
-	color: #fff;
-}
-.pagination .disabled{
-	color: #999;
-}
-.pagination em{
-	font-weight: bold;
-	padding: 4px 10px 4px 10px;
-	text-decoration: none;
-	color: #fff;
-}
-.pagination a:hover{
-	background: #000;
-}
 .toolbar input{
 	padding: 8px;
 	-moz-border-radius: 5px; 
@@ -258,7 +232,7 @@ form input:focus, form textarea:focus{
 }
 div.toolbar{
 	clear: both;
-	background: #ccc;
+	background: #ddd;
 	padding: 5px;
 	overflow: hidden;
 	margin-bottom: 10px;
