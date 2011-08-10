@@ -82,6 +82,9 @@ rails g soapbox_scaffold plugin_name field:type field:type
 
 == Todos
 
+- soapbox_stlyesheets_tag helper
+- soapbox_javascripts_tag helper
+- ruby 1.9.2 - rails 3.0.9
 - rake soapbox_override app/views/admin/pages/form.html.erb - pull file out into app to customize
 - shortcodes - [partial:locals,args] - render "shortcodes/partial", :params => args.split(",")
 - add default permission stuff for shared list and admin_controller - create, edit, delete, admin, etc

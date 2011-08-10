@@ -12,6 +12,7 @@ class Page < ActiveRecord::Base
   
   default_scope order("parent_id, position")
   scope :published, where("publish = ? OR (release_at > ? AND expire_at < ?) ", true, Time.zone.now, Time.zone.now)
+  before_save :set_nav_label
   
   include Soapbox::Page if File.exists? "app/models/soapbox/page.rb"
   
@@ -41,5 +42,10 @@ class Page < ActiveRecord::Base
       parents << page unless page.nil?
     end
     parents.reverse!
+  end
+  
+private
+  def set_nav_label
+    self.nav_label = self.title if self.nav_label.nil? || self.nav_label.empty?
   end
 end
