@@ -30,7 +30,7 @@ class SoapboxScaffoldGenerator < Rails::Generators::NamedBase
       template "model.rb", "app/models/#{singular_name}.rb"
       
       # Create migration
-      migration_name = "#{Time.now.strftime('%Y%m%d%H%M%S')}_create_#{singular_name.pluralize}.rb"
+      migration_name = "#{Time.new.utc.strftime("%Y%m%d%H%M%S")}_create_#{singular_name.pluralize}.rb"
       template 'migration.rb', "db/migrate/#{migration_name}"
       
       # Create view directory

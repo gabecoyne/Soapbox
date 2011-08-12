@@ -22,14 +22,14 @@ require 'polypaperclip'
 
 # load all helpers
 Dir[File.dirname(__FILE__) + "/../app/helpers/*.rb"].each {|file| 
-  puts "[soapbox] helper #{file}"
+  # puts "[soapbox] helper #{file}"
   require file
   ActionView::Base.send :include, eval(file.split("/").last.split(".").first.camelize)
 }
 
 # load all soapbox model extensions
 Dir["app/models/soapbox/*.rb"].each {|file|
-  puts "[soapbox] model extension #{file}"
+  # puts "[soapbox] model extension #{file}"
   require file
 }
 

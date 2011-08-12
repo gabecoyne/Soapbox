@@ -109,7 +109,7 @@ module SoapboxHelper
   
   def editable(resource, field = "body")
     html = ""
-    html += link_to ("Edit", admin_wysiwyg_path(resource.class.to_s, resource.id, field), :class => "floatRight awesome light small", :target => "_blank") if current_user
+    html += link_to("Edit", admin_wysiwyg_path(resource.class.to_s, resource.id, field), :class => "floatRight awesome light small", :target => "_blank") if current_user
     # here is where short codes can go
     html += resource.send(field) || ""
     html.html_safe

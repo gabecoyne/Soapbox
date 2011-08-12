@@ -3,7 +3,7 @@ source "http://rubygems.org"
 # Example:
 
 gem "rails", "~>3.0.0"
-gem "devise", "1.1.2"
+gem "devise", "~> 1.1.2"
 gem 'formtastic', "1.2.3"
 gem 'polypaperclip', "0.1.13"
 gem 'paper_trail', '~> 2'

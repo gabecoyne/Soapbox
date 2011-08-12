@@ -1,4 +1,3 @@
-puts "[soapbox] main page model loaded"
 class Page < ActiveRecord::Base
   
   has_paper_trail
