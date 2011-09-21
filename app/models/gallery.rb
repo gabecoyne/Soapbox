@@ -1,5 +1,5 @@
 class Gallery < ActiveRecord::Base
-  has_many :gallery_images
+  has_many :gallery_images, :dependent => :destroy
   belongs_to :galleriable, :polymorphic => true
   include Soapbox::Gallery if File.exists? "app/models/soapbox/gallery.rb"
   
