@@ -7,7 +7,7 @@ gem "devise", "~> 1.1.2"
 gem 'formtastic', "1.2.3"
 gem 'polypaperclip', "0.1.13"
 gem 'paper_trail', '~> 2'
-gem "will_paginate", "2.3.15"
+gem "will_paginate", "~> 2.3.15"
 gem 'acts-as-taggable-on'
 gem "friendly_id", "~> 3.1"
 gem 'inherited_resources', '1.2.2'
