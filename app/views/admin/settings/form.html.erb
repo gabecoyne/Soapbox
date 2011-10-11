@@ -14,7 +14,11 @@
 			  
 			  	<%= form.inputs do -%>
 						<%= form.input :name %>
-						<%= form.input :value %>
+						<% if @setting.name.index("password") %>
+							<%= form.input :value, :as => :password %>
+						<% else %>
+							<%= form.input :value %>
+					  <% end %>
 						<%= form.input :note %>
 				  <%- end -%>
 			  

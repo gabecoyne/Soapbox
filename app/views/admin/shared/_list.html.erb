@@ -26,7 +26,9 @@
   			end %>
   			<% val = eval(field_values[field.to_sym]) rescue row.send(field.to_sym) rescue "" %>
   			<% ftype = row.column_for_attribute(field.to_s) ? row.column_for_attribute(field.to_s).sql_type : nil %>	
-  			<% if ftype == "tinyint(1)" || ftype == "boolean" %>
+				<% if ((row.name.index("password") && field.to_s == "value") rescue false) %>
+					<td>****</td>
+  			<% elsif ftype == "tinyint(1)" || ftype == "boolean" %>
   				<td>
   					<%= check_box_tag "#{row.class.to_s.underscore}[#{field}]", 'true', val,
   							:"data-remote" => true, :method => "put",

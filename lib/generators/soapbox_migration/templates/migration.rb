@@ -236,12 +236,12 @@ class CreateSoapboxTables < ActiveRecord::Migration
     Plugin.create(:title => "Users", :route => "admin_users_path", :active => true)
     Plugin.create(:title => "Files", :route => "admin_attachments_path", :active => true)
     
-    Plugin.create(:title => "Menus", :route => "admin_menus_path", :active => true, :parent_id => Page.find_by_title("Page").id)
-    Plugin.create(:title => "Redirects", :route => "admin_redirects_path", :active => true, :parent_id => Page.find_by_title("Page").id)
-    Plugin.create(:title => "Organize", :route => "tree_admin_pages_path", :active => true, :parent_id => Page.find_by_title("Page").id)
+    Plugin.create(:title => "Menus", :route => "admin_menus_path", :active => true, :parent_id => Plugin.find_by_title("Pages").id)
+    Plugin.create(:title => "Redirects", :route => "admin_redirects_path", :active => true, :parent_id => Plugin.find_by_title("Pages").id)
+    Plugin.create(:title => "Organize", :route => "tree_admin_pages_path", :active => true, :parent_id => Plugin.find_by_title("Pages").id)
     
-    Plugin.create(:title => "Groups", :route => "admin_groups_path", :active => true, :parent_id => Page.find_by_title("Users").id)
-    Plugin.create(:title => "Members", :route => "admin_members_path", :active => true, :parent_id => Page.find_by_title("Users").id)
+    Plugin.create(:title => "Groups", :route => "admin_groups_path", :active => true, :parent_id => Plugin.find_by_title("Users").id)
+    Plugin.create(:title => "Members", :route => "admin_members_path", :active => true, :parent_id => Plugin.find_by_title("Users").id)
     
     Setting.create({:name => "site_name", :value => "Soapbox Site"})
     Setting.create({:name => "admin_email", :value => "info@mydomain.com"})
