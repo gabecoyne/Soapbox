@@ -11,6 +11,8 @@ class <%= "Create#{class_name.pluralize}" %> < ActiveRecord::Migration
 
     add_index :<%= table_name %>, :id
 
+    Plugin.create({ :title => "<%= plural_name.titleize %>", :route => "admin_<%= plural_name %>_path", :active => true})
+    
   end
 
   def self.down
