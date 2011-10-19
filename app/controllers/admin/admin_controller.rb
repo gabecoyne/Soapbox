@@ -22,6 +22,10 @@ class Admin::AdminController < ApplicationController
   end
   
   def tree
+    if collection.empty?
+      flash[:notice] = "create your first #{params[:controller].gsub('admin/', '').singularize.titleize}"
+      return redirect_to url_for(:controller => params[:controller], :action => "new")
+    end
     render "admin/shared/tree"    
   end
   
