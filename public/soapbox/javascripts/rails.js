@@ -35,10 +35,11 @@ jQuery(function ($) {
 										if (el.is("form, select")) 
 											var data = el.serializeArray()
 										else if(el.is("input[type=checkbox]")) 
-											var data = [ { name : el.attr("name"), value: el.attr("checked") } ]
+											var data = { name : el.attr("name"), value: el.attr("checked"), authenticity_token: csrf_token }
 										else 
 											var data = []
 										// original
+										console.log(data)
                     // var data = el.is('form') ? el.serializeArray() : [];
                     $.ajax({
                         url: url,

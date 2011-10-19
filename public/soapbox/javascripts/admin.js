@@ -44,11 +44,22 @@ $(function() {
 			$(this).addClass("selected").parents("ol, ul, li").addClass("selected")			
 		}
 	});
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// admin notices
 	$(".notice, .alert").delay(1500).slideUp()
 	
 	$("#admin_tabs li.selected ul").css("margin-left", "-"+$("#admin_tabs li.selected ul").width()+"px")
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// ajax checks
+	$('input[data-remote]').click(function () {
+		data = {}
+		data[$(this).attr("name")] = $(this).is(":checked");
+		data[$('meta[name=csrf-param]').attr('content')] = $('meta[name=csrf-token]').attr('content');
+		$.put( $(this).attr("href")+".js", data);
+	});
+	
 });
 
 ////////////////////////////////////////////////////////////////////////////////

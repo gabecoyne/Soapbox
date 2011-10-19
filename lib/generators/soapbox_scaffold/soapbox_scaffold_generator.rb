@@ -59,8 +59,7 @@ class SoapboxScaffoldGenerator < Rails::Generators::NamedBase
       look_for = "# Admin Resources"
       gsub_file('config/routes.rb', /(#{Regexp.escape(look_for)})/mi){|match| "#{match}\n     resources :#{plural_name}"}
       
-      # this moved to the migration
-      # Plugin.create({ :title => plural_name.titleize, :route => "admin_#{plural_name}_path", :active => true})
+      Plugin.create({ :title => plural_name.titleize, :route => "admin_#{plural_name}_path", :active => true})
       
       puts "IMPORTANT"
       puts "---------------------------------------"
