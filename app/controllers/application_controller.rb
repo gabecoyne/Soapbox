@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
 private
+
   def render_404(exception = nil)
     if exception
       logger.info "Rendering 404 with exception: #{exception.message}"
@@ -33,6 +34,7 @@ private
       format.any  { head :not_found }
     end
   end
+  
   def render_in_template(obj)
     if (!obj.template.blank? && 
         FileTest.exists?(Rails.root.join('app', 'views', obj.class.to_s.tableize, 'templates', "#{obj.template}.html.erb")))
@@ -41,6 +43,7 @@ private
       render "#{obj.class.to_s.tableize}/templates/default"
     end
   end
+  
   def layout
     # only turn it off for login pages:
     # debugger

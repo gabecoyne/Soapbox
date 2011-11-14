@@ -25,7 +25,7 @@ $(document).ready(function() {
 		// General options
 		theme : "advanced",
 		width : "100%",
-		height : "600px",
+		// height : "600px",
 		plugins: "paste,fullscreen,contextmenu,advimage,advlink",
 		// advimage,advlink,xhtmlxtras,template,advlist
 

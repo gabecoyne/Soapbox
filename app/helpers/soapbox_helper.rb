@@ -22,7 +22,7 @@ module SoapboxHelper
   def menuable_models
     @m = []
     ActiveRecord::Base.connection.tables.each do |m|
-      @m << m.classify.constantize if m.classify.constantize.first.respond_to?("menu_items") && m != "menus" rescue false
+      @m << m.classify.constantize if !m.classify.constantize.instance_methods.index("menu_items").nil? && m != "menus" rescue false
     end
     @m
   end 
@@ -40,7 +40,7 @@ module SoapboxHelper
     html += "class='#{item.class.to_s.tableize.singularize} #{klass}'"
     html += " id='#{item.class.to_s.tableize.singularize}_#{item.id}'"
     html
-  end  
+  end
   
   def image_field(form, resource, image_name)
     html = ""

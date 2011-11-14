@@ -35,8 +35,16 @@
   							:href => resource_url(row)
   					%>
   				</td>
-  			<% elsif ftype == "datetime" %>
-  				<td><%= time_ago_in_words(val) unless !val %></td>
+  			<% elsif ftype == "datetime" || ftype == "timestamp" %>
+  				<td>
+						<% if val %>
+							<% if val > Time.now %>
+								<%= "in " + time_ago_in_words(val) unless !val %>
+							<% else %>
+								<%= time_ago_in_words(val) + " ago" unless !val %>
+							<% end %> 
+						<% end %>
+					</td>
   			<% elsif field == "attachment"  %>
   				<td><%= link_to row.attachment_file_name, row.attachment.url, :class => "file_link" %></td>
   			<% elsif field[-4,4] == "able" && !row.send("#{field}_type").nil? # show polymorphic relationships %>

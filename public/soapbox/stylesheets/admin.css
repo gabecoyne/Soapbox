@@ -224,7 +224,7 @@ form textarea{
 	width: 100%;
 }
 form textarea.editor{
-	height: 600px;
+	height: auto;
 }
 form input:focus, form textarea:focus{
 	border-color: #000;

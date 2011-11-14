@@ -10,7 +10,8 @@ $(function() {
 	////////////////////////////////////////////////////////////////////////////////
 	// jquery initializers
 	$("input.date").datepicker({dateFormat: 'yy-mm-dd'});
-	$('input.datetime').datetime({ userLang	: 'en',	americanMode: true });
+	$('input.datetime').datetimepicker({dateFormat: 'yy-mm-dd', timeFormat: "hh:mm tt", ampm: true});
+	// $('input.datetime').datetime({ userLang	: 'en',	americanMode: true });
 	// $(".editable").editable();
 	// $(".sortable").sortable()
 	$(".tabs").tabs();

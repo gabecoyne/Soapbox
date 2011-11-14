@@ -38,6 +38,12 @@ class Admin::AdminController < ApplicationController
        format.html { render "form" }
      end
    end
+
+   def edit
+     super do |format|
+       format.html { render "form" }
+     end
+   end
    
    def create
      create! do |success, failure|
@@ -45,12 +51,6 @@ class Admin::AdminController < ApplicationController
        failure.html { render "form" }
        success.js{ render :js => "flash_notice('Created Successfully')" }
        failure.js{ render :js => "flash_error('Create Failed')" }
-     end
-   end
-
-   def edit
-     super do |format|
-       format.html { render "form" }
      end
    end
 

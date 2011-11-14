@@ -1,8 +1,9 @@
 class Page < ActiveRecord::Base
   
   has_paper_trail
-  acts_as_indexed :fields => [:title, :body, :area_1, :area_2, :meta_keywords, :meta_description, :nav_label]  
   has_friendly_id :title, :use_slug => true
+  
+  acts_as_indexed :fields => [:title, :body, :area_1, :area_2, :meta_keywords, :meta_description, :nav_label]  
   
   acts_as_tree :order => "position"
   
