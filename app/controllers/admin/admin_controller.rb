@@ -61,7 +61,7 @@ class Admin::AdminController < ApplicationController
          unless params[:success].nil?
            render :js => params[:success] 
          else
-           render :js => "flash_error('Updated Successfully')" 
+           render :js => "flash_notice('Updated Successfully')" 
          end         
        }
        failure.html { render "form" }

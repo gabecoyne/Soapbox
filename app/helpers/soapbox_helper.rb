@@ -115,4 +115,8 @@ module SoapboxHelper
     html.html_safe
   end
   
+  def words(html, limit)
+    html.gsub(/<\/?[^>]*>/, "").split(" ")[1..limit].join(" ")
+  end
+  
 end

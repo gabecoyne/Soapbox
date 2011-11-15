@@ -1,10 +1,12 @@
 module MenuHelper
+  
   def menu_nav(name)
     items = Menu.find_by_name(name).menu_items
     html = ""
   	html << "<ul id='#{ name }_nav'>"
     items.each do |item|
-      html << "<li>"
+      next if (!item.menuable.published? && !user_logged_in? rescue false) # add published method to any menuable object
+      html << "<li class='#{item.label_text.gsub(" ","_").downcase}'>"
       if item.menuable_id.nil?
         html << link_to(item.label_text, eval("#{item.menuable_type.tableize}_path()"))
       else
@@ -23,4 +25,5 @@ module MenuHelper
     html << "</ul>"
     html.html_safe
   end
+  
 end

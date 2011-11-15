@@ -13,7 +13,7 @@
 							data: {
 								'page[template]': $('#page_template').val(),
 								'page[id]': #{@page.id},
-								authenticity_token: encodeURIComponent('#{form_authenticity_token.inspect}')
+								authenticity_token: #{form_authenticity_token.inspect}
 							}, 
 							type: 'PUT',
 							success: function(){
