@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{soapbox}
-  s.version = "0.2.10"
+  s.version = "0.2.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Gabe Coyne}, %q{Killit Creative}]
-  s.date = %q{2011-11-14}
+  s.date = %q{2011-11-15}
   s.description = %q{manage pages, users, permissions, settings, analytics, files, users, and extend}
   s.email = %q{gabe@killitcreative.com}
   s.extra_rdoc_files = [
@@ -147,8 +147,10 @@ Gem::Specification.new do |s|
     "lib/generators/soapbox_scaffold/soapbox_scaffold_generator.rb",
     "lib/generators/soapbox_scaffold/templates/admin_controller.rb",
     "lib/generators/soapbox_scaffold/templates/controller.rb",
+    "lib/generators/soapbox_scaffold/templates/engine.rb",
     "lib/generators/soapbox_scaffold/templates/migration.rb",
     "lib/generators/soapbox_scaffold/templates/model.rb",
+    "lib/generators/soapbox_scaffold/templates/routes.rb",
     "lib/generators/soapbox_scaffold/templates/views/admin/form.html.erb",
     "lib/generators/soapbox_scaffold/templates/views/admin/index.html.erb",
     "lib/generators/soapbox_scaffold/templates/views/index.html.erb",
