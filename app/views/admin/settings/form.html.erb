@@ -14,8 +14,8 @@
 			  
 			  	<%= form.inputs do -%>
 						<%= form.input :name %>
-						<% if @setting.name.index("password") %>
-							<%= form.input :value, :as => :password %>
+						<% if !@setting.name.nil? && @setting.name.index("password") %>
+							<%= form.input :value, :as => :password, :input_html => {:value => ""} %>
 						<% else %>
 							<%= form.input :value %>
 					  <% end %>
