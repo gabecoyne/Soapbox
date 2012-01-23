@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{soapbox}
-  s.version = "0.2.12"
+  s.version = "0.2.13"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Gabe Coyne}, %q{Killit Creative}]
-  s.date = %q{2011-11-15}
+  s.date = %q{2012-01-23}
   s.description = %q{manage pages, users, permissions, settings, analytics, files, users, and extend}
   s.email = %q{gabe@killitcreative.com}
   s.extra_rdoc_files = [
@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
     "app/controllers/admin/gallery_images_controller.rb",
     "app/controllers/admin/groups_controller.rb",
     "app/controllers/admin/images_controller.rb",
+    "app/controllers/admin/members_controller.rb",
     "app/controllers/admin/menu_items_controller.rb",
     "app/controllers/admin/menus_controller.rb",
     "app/controllers/admin/pages_controller.rb",
@@ -88,6 +89,8 @@ Gem::Specification.new do |s|
     "app/views/admin/galleries/index.html.erb",
     "app/views/admin/groups/form.html.erb",
     "app/views/admin/groups/index.html.erb",
+    "app/views/admin/members/form.html.erb",
+    "app/views/admin/members/index.html.erb",
     "app/views/admin/menu_items/form.html.erb",
     "app/views/admin/menus/_item.html.erb",
     "app/views/admin/menus/form.html.erb",
