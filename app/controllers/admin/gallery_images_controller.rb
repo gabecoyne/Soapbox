@@ -13,6 +13,17 @@ class Admin::GalleryImagesController < Admin::AdminController
       failure.js { 
         render :json => { :result => 'error'}, :content_type => 'text/html'
       }
+      # IE sends post as html... lame
+      success.html {
+        render :json => { 
+            :id => resource.id,
+            :gallery_id => resource.gallery_id
+          }, 
+          :content_type => 'text/html'
+      }
+      failure.html { 
+        render :json => { :result => 'error'}, :content_type => 'text/html'
+      }
     end
   end
   
@@ -26,4 +37,5 @@ class Admin::GalleryImagesController < Admin::AdminController
   def image
     render :partial => "admin/galleries/image", :locals => {:image => GalleryImage.find(params[:gallery_image_id])}, :layout => false
   end
+  
 end
