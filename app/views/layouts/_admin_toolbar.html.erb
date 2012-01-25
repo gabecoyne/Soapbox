@@ -22,7 +22,7 @@
 						})" 
 			%>
 		<% end %>
-		<%= link_to "Edit this #{resource.class}", eval("edit_admin_#{resource.class.to_s.tableize.singularize}_path(resource)"), :class => "awesome black" if params[:id] %>
+		<%= link_to "Edit this #{resource.class}", eval("edit_admin_#{resource.class.to_s.tableize.singularize}_path(resource)"), :class => "awesome black" if(params[:id]) rescue "" %>
 		<%= yield :admin_toolbar %>
   </div>
 </div>
