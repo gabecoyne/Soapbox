@@ -11,6 +11,7 @@ Rails.application.routes.draw do |map|
     resources :menus do
       resources :menu_items
     end  
+    resources :members
     resources :gallery_images # for attachments views
     resources :galleries do      
       resources :gallery_images do
