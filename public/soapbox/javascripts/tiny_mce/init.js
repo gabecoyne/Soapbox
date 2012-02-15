@@ -25,6 +25,8 @@ $(document).ready(function() {
 		// General options
 		theme : "advanced",
 		width : "100%",
+		valid_elements : '*[*]',
+		// valid_elements : '*[*],iframe[src|title|width|height|allowfullscreen|frameborder]',
 		// height : "600px",
 		plugins: "paste,fullscreen,contextmenu,advimage,advlink",
 		// advimage,advlink,xhtmlxtras,template,advlist
