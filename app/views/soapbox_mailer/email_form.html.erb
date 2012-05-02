@@ -1,5 +1,5 @@
 <% if @params[:email][:content] %>
-	<%= Content[@params[:email][:content]].html_safe %>
+	<%= Content[@params[:email][:content]].to_s.html_safe %>
 <% end %>
 
 <table>	
