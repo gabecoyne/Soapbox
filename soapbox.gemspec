@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "soapbox"
-  s.version = "0.2.21"
+  s.name = %q{soapbox}
+  s.version = "0.2.22"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gabe Coyne", "Killit Creative"]
-  s.date = "2012-05-02"
-  s.description = "manage pages, users, permissions, settings, analytics, files, users, and extend"
-  s.email = "gabe@killitcreative.com"
+  s.date = %q{2012-08-27}
+  s.description = %q{manage pages, users, permissions, settings, analytics, files, users, and extend}
+  s.email = %q{gabe@killitcreative.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "app/.DS_Store",
     "app/controllers/admin/admin_controller.rb",
     "app/controllers/admin/analytics_controller.rb",
     "app/controllers/admin/attachments_controller.rb",
@@ -549,17 +550,18 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_soapbox.rb"
   ]
-  s.homepage = "http://github.com/gabecoyne/soapbox"
+  s.homepage = %q{http://github.com/gabecoyne/soapbox}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
-  s.summary = "Rails CMS by Killit Creative"
+  s.rubygems_version = %q{1.3.6}
+  s.summary = %q{Rails CMS by Killit Creative}
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, ["~> 3.0.0"])
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rails>, ["= 3.0.9"])
       s.add_runtime_dependency(%q<devise>, ["~> 1.1.2"])
       s.add_runtime_dependency(%q<formtastic>, ["= 1.2.3"])
       s.add_runtime_dependency(%q<polypaperclip>, ["= 0.1.13"])
@@ -571,16 +573,16 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<inherited_resources>, ["= 1.2.2"])
       s.add_runtime_dependency(%q<acts_as_indexed>, [">= 0"])
       s.add_runtime_dependency(%q<aws-s3>, [">= 0"])
-      s.add_runtime_dependency(%q<acts_as_tree>, [">= 0"])
+      s.add_runtime_dependency(%q<acts_as_tree>, ["= 0.1.1"])
       s.add_runtime_dependency(%q<acts_as_list>, [">= 0"])
       s.add_runtime_dependency(%q<garb>, [">= 0"])
       s.add_runtime_dependency(%q<bartt-ssl_requirement>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<bundler>, ["= 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
-      s.add_dependency(%q<rails>, ["~> 3.0.0"])
+      s.add_dependency(%q<rails>, ["= 3.0.9"])
       s.add_dependency(%q<devise>, ["~> 1.1.2"])
       s.add_dependency(%q<formtastic>, ["= 1.2.3"])
       s.add_dependency(%q<polypaperclip>, ["= 0.1.13"])
@@ -592,17 +594,17 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<inherited_resources>, ["= 1.2.2"])
       s.add_dependency(%q<acts_as_indexed>, [">= 0"])
       s.add_dependency(%q<aws-s3>, [">= 0"])
-      s.add_dependency(%q<acts_as_tree>, [">= 0"])
+      s.add_dependency(%q<acts_as_tree>, ["= 0.1.1"])
       s.add_dependency(%q<acts_as_list>, [">= 0"])
       s.add_dependency(%q<garb>, [">= 0"])
       s.add_dependency(%q<bartt-ssl_requirement>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<bundler>, ["= 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<rails>, ["~> 3.0.0"])
+    s.add_dependency(%q<rails>, ["= 3.0.9"])
     s.add_dependency(%q<devise>, ["~> 1.1.2"])
     s.add_dependency(%q<formtastic>, ["= 1.2.3"])
     s.add_dependency(%q<polypaperclip>, ["= 0.1.13"])
@@ -614,12 +616,12 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<inherited_resources>, ["= 1.2.2"])
     s.add_dependency(%q<acts_as_indexed>, [">= 0"])
     s.add_dependency(%q<aws-s3>, [">= 0"])
-    s.add_dependency(%q<acts_as_tree>, [">= 0"])
+    s.add_dependency(%q<acts_as_tree>, ["= 0.1.1"])
     s.add_dependency(%q<acts_as_list>, [">= 0"])
     s.add_dependency(%q<garb>, [">= 0"])
     s.add_dependency(%q<bartt-ssl_requirement>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<bundler>, ["= 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
     s.add_dependency(%q<rcov>, [">= 0"])
   end
