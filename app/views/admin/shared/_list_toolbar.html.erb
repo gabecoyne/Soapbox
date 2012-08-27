@@ -1,22 +1,28 @@
-<div class="toolbar" style="margin-bottom:5px">	
-  <% if current_user.can?("create","Model#{resource_class.to_s}") %>
-  	<%= link_to "+ Add #{resource_class.to_s}", new_resource_url, :class => "awesome large green floatRight" %>
-	<% end %>
-	
-	<% if resource_class.respond_to?("find_with_index") %>
-		<%= form_for "", collection_path, :html=> { :style => "float:right;", :method => :get} do |f| %>
-			<%= link_to "Search", "#", 
-				:class => "awesome large light floatRight", 
-				:style => "margin-right:5px", 
-				:onclick => "$('#search').submit()" 
-			%>
-			<% params.each do |name,value| -%>
-			 <% next if ["controller","action"].index(name) %>
-			 <%= hidden_field_tag name, value %>
-			<% end -%>
-			<%= f.text_field :s, :id => :s, :name => "s", :value => params[:s] %>
-		<% end %>
-	<% end %>
-	
+<div class="toolbar" style="margin-bottom:15px; background-color: #555;">	
 	<%= will_paginate(collection) %>
+</div>
+
+<div class="clear"></div>
+
+<div class="toolbar" style="margin-bottom:15px; background-color: #555; border-top: #fff;">	
+ 	<div> 
+	  <% if current_user.can?("create","Model#{resource_class.to_s}") %>
+	  	<%= link_to "+ Add #{resource_class.to_s}", new_resource_url, :class => "awesome large green floatRight" %>
+		<% end %>
+	
+		<% if resource_class.respond_to?("find_with_index") %>
+			<%= form_for "", collection_path, :html=> { :style => "float:right;", :method => :get} do |f| %>
+				<%= link_to "Search", "#", 
+					:class => "awesome large light floatRight", 
+					:style => "margin-right:5px", 
+					:onclick => "$('#search').submit()" 
+				%>
+				<% params.each do |name,value| -%>
+				 <% next if ["controller","action"].index(name) %>
+				 <%= hidden_field_tag name, value %>
+				<% end -%>
+				<%= f.text_field :s, :id => :s, :name => "s", :value => params[:s] %>
+			<% end %>
+		<% end %>
+	</div>
 </div>

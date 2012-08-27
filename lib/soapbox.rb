@@ -9,6 +9,7 @@ require "friendly_id"
 require 'inherited_resources'
 require 'acts_as_indexed'
 require 'aws/s3'
+#require "acts_as_tree", "= 0.1.1"
 require "acts_as_tree"
 require "acts_as_list"
 require "garb"

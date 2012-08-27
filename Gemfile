@@ -2,7 +2,8 @@ source "http://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
 
-gem "rails", "~>3.0.0"
+gem "rails", "= 3.0.9"
+#gem "rails", "~>3.0.0"
 gem "devise", "~> 1.1.2"
 gem 'formtastic', "1.2.3"
 gem 'polypaperclip', "0.1.13"
@@ -14,7 +15,7 @@ gem "friendly_id", "~> 3.1"
 gem 'inherited_resources', '1.2.2'
 gem 'acts_as_indexed'
 gem 'aws-s3', :require => 'aws/s3'
-gem "acts_as_tree"
+gem "acts_as_tree", '= 0.1.1'
 gem "acts_as_list"
 gem "garb"
 gem "bartt-ssl_requirement", :require => 'ssl_requirement'

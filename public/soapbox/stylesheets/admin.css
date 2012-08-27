@@ -477,7 +477,7 @@ input#s{
   margin-bottom: -54px;
   margin-top: 12px;
 	float: right;
-	margin-right: 450px;
+/*	margin-right: 450px;*/
 }
 .image_subnav li{
   float: left;
@@ -570,4 +570,8 @@ body.login form input.submit:hover{
 .devise_links a:hover{
 	color: #fff;
 	background: none;
+}
+
+.toolbar .disabled {
+	display: none;
 }

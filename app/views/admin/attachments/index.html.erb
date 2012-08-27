@@ -3,8 +3,8 @@
   <% Attachment.content_types.each do |type| %>
     <li><%= link_to type.pluralize.titleize, admin_attachments_path({:type => type}), :class => "awesome light" %></li>
   <% end %>
+	<div class="clear"></div>
 </ul>
-<% #debugger %>
 <% if params[:type] && 
 	(
 		FileTest.exist?(File.join(::Rails.root.to_s, 'app', 'views', params[:controller],'_'+params[:type]+'.html.erb'))	|| 

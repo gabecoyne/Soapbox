@@ -70,7 +70,7 @@ form.formtastic input.awesome,
 	border-radius: 5px; 
 	-moz-border-radius: 5px; 
 	-webkit-border-radius: 5px;}
-.pagination span.current { background: #fff;}
+.pagination span.current {background-color: #91bd09; color: #fff; padding: 4px 7px 6px 7px;}
 
 .light.awesome, .light.awesome:visited,
 .pagination a		{ background-color: #dfdfdf; color:#777777;	text-shadow:1px 1px 0px #ffffff; border-color: #ddd; color: #999;
