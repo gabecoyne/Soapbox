@@ -13,7 +13,7 @@ form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
 
 --------------------------------------------------------------------------------------------------*/
 form.formtastic fieldset > ol > li { clear: left; }
-form.formtastic fieldset > ol > li label { text-align: right; width:22%; padding-right: 2%; font-weight: bold; }
+form.formtastic fieldset > ol > li label { text-align: right; width:22%; padding-right: 4%; font-weight: bold; }
 form.formtastic fieldset > ol > li label small{ font-weight: normal; color: #777; }
 form.formtastic fieldset.buttons { background: #666; padding: 5px; clear: both; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
 form.formtastic fieldset.buttons > ol > li { margin: 0px; }
@@ -25,3 +25,9 @@ form.formtastic fieldset > ol > li.boolean label{ padding-left: 24%; margin-bott
 form.formtastic fieldset > ol > li.string input.title{width:100%;max-width:98%;font-size:2em;}
 form.formtastic fieldset > ol > li.string input.large,
 form.formtastic fieldset > ol > li.email input.large{width:70%;max-width:98%;font-size:2em;}
+
+input#attachment_attachment {
+	position: relative;
+	left: 15px;
+	top: -2px;
+}
