@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "soapbox"
-  s.version = "0.3.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gabe Coyne", "Killit Creative"]
@@ -565,7 +565,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<devise>, ["~> 1.1.2"])
       s.add_runtime_dependency(%q<formtastic>, ["= 1.2.3"])
       s.add_runtime_dependency(%q<polypaperclip>, ["= 0.1.13"])
-      s.add_runtime_dependency(%q<paperclip>, ["= 2.8.0"])
+      s.add_runtime_dependency(%q<paperclip>, ["= 2.3.16"])
       s.add_runtime_dependency(%q<paper_trail>, ["~> 2"])
       s.add_runtime_dependency(%q<will_paginate>, ["~> 2.3.15"])
       s.add_runtime_dependency(%q<acts-as-taggable-on>, [">= 0"])
@@ -586,7 +586,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<devise>, ["~> 1.1.2"])
       s.add_dependency(%q<formtastic>, ["= 1.2.3"])
       s.add_dependency(%q<polypaperclip>, ["= 0.1.13"])
-      s.add_dependency(%q<paperclip>, ["= 2.8.0"])
+      s.add_dependency(%q<paperclip>, ["= 2.3.16"])
       s.add_dependency(%q<paper_trail>, ["~> 2"])
       s.add_dependency(%q<will_paginate>, ["~> 2.3.15"])
       s.add_dependency(%q<acts-as-taggable-on>, [">= 0"])
@@ -608,7 +608,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<devise>, ["~> 1.1.2"])
     s.add_dependency(%q<formtastic>, ["= 1.2.3"])
     s.add_dependency(%q<polypaperclip>, ["= 0.1.13"])
-    s.add_dependency(%q<paperclip>, ["= 2.8.0"])
+    s.add_dependency(%q<paperclip>, ["= 2.3.16"])
     s.add_dependency(%q<paper_trail>, ["~> 2"])
     s.add_dependency(%q<will_paginate>, ["~> 2.3.15"])
     s.add_dependency(%q<acts-as-taggable-on>, [">= 0"])
