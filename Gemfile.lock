@@ -78,7 +78,7 @@ GEM
     paper_trail (2.6.3)
       activerecord (~> 3.0)
       railties (~> 3.0)
-    paperclip (2.8.0)
+    paperclip (2.3.16)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
@@ -146,7 +146,7 @@ DEPENDENCIES
   inherited_resources (= 1.2.2)
   jeweler (~> 1.6.0)
   paper_trail (~> 2)
-  paperclip (= 2.8.0)
+  paperclip (= 2.3.16)
   polypaperclip (= 0.1.13)
   rails (= 3.0.9)
   rcov
