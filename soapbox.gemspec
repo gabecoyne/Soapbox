@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{soapbox}
-  s.version = "0.2.24"
+  s.name = "soapbox"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gabe Coyne", "Killit Creative"]
-  s.date = %q{2012-09-07}
-  s.description = %q{manage pages, users, permissions, settings, analytics, files, users, and extend}
-  s.email = %q{gabe@killitcreative.com}
+  s.date = "2012-11-07"
+  s.description = "manage pages, users, permissions, settings, analytics, files, users, and extend"
+  s.email = "gabe@killitcreative.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -76,6 +76,7 @@ Gem::Specification.new do |s|
     "app/models/redirect.rb",
     "app/models/setting.rb",
     "app/models/user.rb",
+    "app/views/admin/.DS_Store",
     "app/views/admin/analytics/index.html.erb",
     "app/views/admin/attachments/_image.html.erb",
     "app/views/admin/attachments/form.html.erb",
@@ -550,22 +551,21 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_soapbox.rb"
   ]
-  s.homepage = %q{http://github.com/gabecoyne/soapbox}
+  s.homepage = "http://github.com/gabecoyne/soapbox"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Rails CMS by Killit Creative}
+  s.rubygems_version = "1.8.24"
+  s.summary = "Rails CMS by Killit Creative"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, ["= 3.0.9"])
       s.add_runtime_dependency(%q<devise>, ["~> 1.1.2"])
       s.add_runtime_dependency(%q<formtastic>, ["= 1.2.3"])
       s.add_runtime_dependency(%q<polypaperclip>, ["= 0.1.13"])
-      s.add_runtime_dependency(%q<paperclip>, ["= 2.3.16"])
+      s.add_runtime_dependency(%q<paperclip>, ["= 2.8.0"])
       s.add_runtime_dependency(%q<paper_trail>, ["~> 2"])
       s.add_runtime_dependency(%q<will_paginate>, ["~> 2.3.15"])
       s.add_runtime_dependency(%q<acts-as-taggable-on>, [">= 0"])
@@ -578,7 +578,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<garb>, [">= 0"])
       s.add_runtime_dependency(%q<bartt-ssl_requirement>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["= 1.0.0"])
+      s.add_development_dependency(%q<bundler>, ["= 1.2.1"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
@@ -586,7 +586,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<devise>, ["~> 1.1.2"])
       s.add_dependency(%q<formtastic>, ["= 1.2.3"])
       s.add_dependency(%q<polypaperclip>, ["= 0.1.13"])
-      s.add_dependency(%q<paperclip>, ["= 2.3.16"])
+      s.add_dependency(%q<paperclip>, ["= 2.8.0"])
       s.add_dependency(%q<paper_trail>, ["~> 2"])
       s.add_dependency(%q<will_paginate>, ["~> 2.3.15"])
       s.add_dependency(%q<acts-as-taggable-on>, [">= 0"])
@@ -599,7 +599,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<garb>, [">= 0"])
       s.add_dependency(%q<bartt-ssl_requirement>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["= 1.0.0"])
+      s.add_dependency(%q<bundler>, ["= 1.2.1"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
@@ -608,7 +608,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<devise>, ["~> 1.1.2"])
     s.add_dependency(%q<formtastic>, ["= 1.2.3"])
     s.add_dependency(%q<polypaperclip>, ["= 0.1.13"])
-    s.add_dependency(%q<paperclip>, ["= 2.3.16"])
+    s.add_dependency(%q<paperclip>, ["= 2.8.0"])
     s.add_dependency(%q<paper_trail>, ["~> 2"])
     s.add_dependency(%q<will_paginate>, ["~> 2.3.15"])
     s.add_dependency(%q<acts-as-taggable-on>, [">= 0"])
@@ -621,7 +621,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<garb>, [">= 0"])
     s.add_dependency(%q<bartt-ssl_requirement>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["= 1.0.0"])
+    s.add_dependency(%q<bundler>, ["= 1.2.1"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
     s.add_dependency(%q<rcov>, [">= 0"])
   end
