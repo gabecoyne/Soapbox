@@ -7,8 +7,8 @@ gem "rails", "= 3.0.9"
 gem "devise", "~> 1.1.2"
 gem 'formtastic', "1.2.3"
 gem 'polypaperclip', "0.1.13"
-#gem 'paperclip', '2.3.16' # 2.4 was causing issues
-gem 'paperclip', '2.8.0' # 2.4 was causing issues
+gem 'paperclip', '2.3.16' # 2.4 was causing issues
+# gem 'paperclip', '2.8.0' # 2.4 was causing issues
 gem 'paper_trail', '~> 2'
 gem "will_paginate", "~> 2.3.15"
 gem 'acts-as-taggable-on'
